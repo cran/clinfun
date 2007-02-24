@@ -1,0 +1,12 @@
+coxphCPE                Gonen & Heller Concordance Probability Estimate
+coxphQuantile           Survival time quantile as a function of
+                        covariate
+fedesign                Trial Designs Based On Fisher's Exact Test
+gsdesign                Group Sequential Designs
+oc.twostage.bdry        Two-stage boundary operating characteristics
+permtests               Permutation versions of some common tests
+ph2simon                Simon's 2-stage Phase II design
+ph2single               Exact single stage Phase II design
+pselect                 Probability of selection under pick the winner
+                        rule
+toxbdry                 Stopping rule for toxicity monitoring

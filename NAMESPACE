@@ -1,0 +1,8 @@
+useDynLib(clinfun)
+import(stats,graphics)
+importFrom(mvtnorm, pmvnorm)
+export("coxphQuantile","coxphCPE","fe.power","fe.mdor","fe.ssize","CPS.ssize","gsdesign.binomial","gsdesign.normal","gsdesign.survival","permlogrank","ph2simon","oc.twostage.bdry","ph2single","pselect","toxbdry")
+S3method(print, ph2simon)
+S3method(plot, ph2simon)
+S3method(print, toxbdry)
+S3method(print, permlogrank)
