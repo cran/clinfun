@@ -10,8 +10,8 @@
 }
 \usage{
 ph2simon(pu, pa, ep1, ep2, nmax=100)
-print.ph2simon(x, ...)
-plot.ph2simon(x, ...)
+\method{print}{ph2simon}(x, \dots)
+\method{plot}{ph2simon}(x, \dots)
 }
 \arguments{
   \item{pu}{unacceptable response rate}
@@ -32,11 +32,10 @@ plot.ph2simon(x, ...)
   \item{out}{matrix of best 2 stage designs for each value of total
     sample size n.  the 6 columns are: r1, n1, r, n, EN(p0), PET(p0)}
 
-  print.ph2siomon formats and returns the minimax and optimal designs
-
-  plot.ph2simon plots the expected sample size agains the maximum
+  The "print" method formats and returns the minimax and optimal
+  designs.  The "plot" plots the expected sample size agains the maximum
   sample size as in Jung et al., 2001
-}  
+}
 
 \examples{
   ph2simon(0.2, 0.4, 0.1, 0.1)

@@ -1,12 +1,20 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\\
+||        The chores may not be fun but these utilities may help          ||
+\\++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 coxphCPE                Gonen & Heller Concordance Probability Estimate
-coxphQuantile           Survival time quantile as a function of
-                        covariate
+coxphQuantile           Survival time quantile as a function of covariate
 fedesign                Trial Designs Based On Fisher's Exact Test
 gsdesign                Group Sequential Designs
-oc.twostage.bdry        Two-stage boundary operating characteristics
+   gsdesign.binomial       binary outcomes
+   gsdesign.normal         normal outcomes
+   gsdesign.survival       survival outcomes
 permtests               Permutation versions of some common tests
+   jonckheere.test         Exact version of Jonckheere-Terpstra test
+   permlogrank             Survival comparisons with permutation reference
 ph2simon                Simon's 2-stage Phase II design
+   oc.twostage.bdry        Two-stage boundary operating characteristics
 ph2single               Exact single stage Phase II design
-pselect                 Probability of selection under pick the winner
-                        rule
+pselect                 Probability of selection under pick the winner rule
 toxbdry                 Stopping rule for toxicity monitoring
+   bdrycross.prob          Operating characteristics of a specific boundary

@@ -10,13 +10,13 @@
 \usage{
 gsdesign.binomial(ifrac, pC, pE, sig.level = 0.05, power = 0.8,
   delta.eb=0.5, delta.fb = 0, alternative = c("two.sided", "one.sided"),
-  tol=0.001) 
+  tol=0.0001) 
 gsdesign.normal(ifrac, delta, sd = 1, sig.level = 0.05, power = 0.8,
   delta.eb = 0.5, delta.fb = 0, alternative = c("two.sided", "one.sided"),
-  tol=0.001)
+  tol=0.0001)
 gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, power = 0.8,
   delta.eb = 0.5, delta.fb = 0, alternative = c("two.sided", "one.sided"),
-  tol=0.001)
+  tol=0.0001)
 }
 \arguments{
   \item{ifrac}{information fraction ratio of current to total sample

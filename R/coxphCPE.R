@@ -29,5 +29,7 @@ coxphCPE <- function(phfit) {
   varDeriv <- 2*zzz$varDeriv/(n*(n-1))
   varTerm2 <- t(varDeriv)%*%vbetahat%*%varDeriv
   varCPE <- varTerm1 + varTerm2
-  list("CPE"=CPE, "smooth.CPE"=CPEsmooth, "se.CPE"=sqrt(varCPE))
+  out <- c(CPE, CPEsmooth, sqrt(varCPE))
+  names(out) <- c("CPE", "smooth.CPE", "se.CPE")
+  out
 }

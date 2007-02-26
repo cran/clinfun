@@ -11,7 +11,7 @@
 \usage{
 toxbdry(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5)
 bdrycross.prob(n, r, ptox)
-print.toxbdry(x, ...)
+\method{print}{toxbdry}(x, \dots)
 }
 \arguments{
   \item{pLo}{the toxicity rate that is acceptable.}
