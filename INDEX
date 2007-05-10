@@ -2,6 +2,7 @@
 ||        The chores may not be fun but these utilities may help          ||
 \\++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+calogrank               Covariate adjusted logrank test
 coxphCPE                Gonen & Heller Concordance Probability Estimate
 coxphQuantile           Survival time quantile as a function of covariate
 fedesign                Trial Designs Based On Fisher's Exact Test

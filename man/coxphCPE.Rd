@@ -12,8 +12,8 @@
   \item{phfit}{output from a proportional hazards fit.}
 }
 \value{
-  coxphCPE returns a list with CPE, smooth.CPE & se.CPE which the
-  estimate, the smoothed estimate and its standard error.
+  coxphCPE returns a vector with CPE, smooth.CPE & se.CPE which are the
+  estimate, the smoothed estimate and its standard error respectively.
 }  
 \examples{
 \dontrun{ library(survival)

@@ -1,5 +1,5 @@
-coxphQuantile <- function(phfit, xrange, p=0.5, whichx=1, otherx=NULL,
-                           ngrid=256, ...) {
+coxphQuantile <- function(phfit, xrange, p=0.5, whichx=1, otherx=NULL, ...)
+{
   if (class(phfit) != "coxph") stop("phfit shoud be coxph class object")
   cvtmean <- phfit$means
   loghr <- phfit$coef
@@ -9,9 +9,8 @@ coxphQuantile <- function(phfit, xrange, p=0.5, whichx=1, otherx=NULL,
   if (!missing(otherx)) {
     ssurv <- ssurv^(exp(sum(loghr[-whichx]*(otherx-cvtmean[-whichx]))))
   }
-  xseq <- seq(xrange[1], xrange[2], length.out=ngrid)
-  ii <- sapply((xseq - cvtmean[whichx])*loghr[whichx], function(xi, ssurv, p) {
-    which(ssurv^(exp(xi)) < p)[1]
-  }, ssurv, p)
-  lines(xseq, stime[ii], ...)
+  sx <- cvtmean[whichx] + log(log(p)/log(ssurv))/loghr[whichx]
+  ii <- which(sx >= xrange[1] & sx <= xrange[2])
+  lines(sx[ii], stime[ii], type="S", ...)
+  invisible(as.data.frame(list(sx,stime)))
 }

@@ -8,14 +8,15 @@
 }
 \usage{
   permlogrank(formula, data, subset, na.action, rho=0, nperm=5000)
-  jonckheere.test(x, g, alternative = c("two.sided", "less", "greater"))
+  jonckheere.test(x, g, alternative = c("two.sided", "increasing",
+                 "decreasing"))
 }
 \arguments{
   \item{nperm}{number of permutations for the reference distribution}
   \item{formula, data, subset, na.action, rho}{see survdiff for details}
   \item{x, g}{data and group vector}
-  \item{alternative}{less = means are increasing, greater = means are
-    decreasing, two.sided = either}
+  \item{alternative}{means are monotonic (two.sided), increasing, or
+    decreasing}
 }
 \details{
   permlogrank is the permutation version of k-sample survdiff

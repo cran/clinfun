@@ -3,10 +3,10 @@
 \alias{coxphQuantile}
 \keyword{survival}
 \description{
-  Drwas a quantile curve of survival distribution as a function of covariate.
+  Draws a quantile curve of survival distribution as a function of covariate.
 }
 \usage{
-  coxphQuantile(phfit, xrange, p=0.5, whichx=1, otherx=NULL, ngrid=256, ...)
+  coxphQuantile(phfit, xrange, p=0.5, whichx=1, otherx=NULL, ...)
 }
 \arguments{
   \item{phfit}{output from a proportional hazards fit.}
@@ -17,14 +17,15 @@
     the one chosen for the quantile plot.}
   \item{otherx}{the values for other covariates in the Cox model.  If
     missing uses their average values.}
-  \item{ngrid}{number of points at which quantile is calculated.}
   \item{...}{additional parameters to be passed on to the lines command.}
 }
 \details{
-  This function is used to draw quantile curves and has no output.
+  This function is used to draw quantile curves.  It invisibly returns
+  the observed failure times and the covariate values at which the
+  estimated survival probability is (exactly) p.
 }
 \examples{
-\dontrun{ library(survival)
+\dontrun{  library(survival)
   data(pbc)
   pbcfit <- coxph(Surv(time, status) ~ trt + log(copper), pbc,
     subset=(trt>0 & copper>0)) 
