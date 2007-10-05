@@ -8,6 +8,9 @@
       double precision xbij, pij, pji, dij, dji, eij, eji, uij, uji,
      1     xijk
 
+      double precision fpnorm, fdnorm
+      external fpnorm, fdnorm
+
       do 100 i = 1, n-1
          do 90 j = i+1, n
             xbij = xbeta(i) - xbeta(j)
