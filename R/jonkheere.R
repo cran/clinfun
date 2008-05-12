@@ -50,7 +50,7 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
     iPVAL <- sum(djonckheere(gsize)[1:(jtrsum+1)])
     dPVAL <- 1-sum(djonckheere(gsize)[1:(jtrsum)])
     PVAL <- switch(alternative,
-                   "two.sided" = 2*min(lPVAL, gPVAL),
+                   "two.sided" = 2*min(iPVAL, dPVAL),
                    "increasing" = iPVAL,
                    "decreasing" = dPVAL)
   }

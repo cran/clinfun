@@ -20,9 +20,11 @@
   \item{...}{additional parameters to be passed on to the lines command.}
 }
 \details{
-  This function is used to draw quantile curves.  It invisibly returns
-  the observed failure times and the covariate values at which the
-  estimated survival probability is (exactly) p.
+  This function is used to draw quantile curves.  It requires a plot of
+  the data (time & covariate of interest) to be present.  See example.
+
+  It invisibly returns the observed failure times and the covariate
+  values at which the estimated survival probability is (exactly) p.
 }
 \examples{
 \dontrun{  library(survival)

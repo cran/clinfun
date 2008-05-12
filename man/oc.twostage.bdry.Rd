@@ -3,7 +3,7 @@
 \alias{oc.twostage.bdry}
 \keyword{design}
 \description{
-  Calculates the operating characteristics of a two-stage boundary.}
+  Calculates the operating characteristics of a two-stage boundary.
 }
 \usage{
 oc.twostage.bdry(pu, pa, r1, n1, r, n)

@@ -13,7 +13,7 @@ calogrank <- function(ftime, fstatus, grp, cvt, strat=NULL) {
   ftime	<- ftime[ii]
   fstatus <- fstatus[ii]
   grp <- grp[ii]
-  cvt <- cvt[ii,]
+  cvt <- cbind(cvt[ii,])
   strat <- strat[ii]
  
   n0 <- length(ftime)
