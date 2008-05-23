@@ -16,6 +16,7 @@ permtests               Permutation versions of some common tests
 ph2simon                Simon's 2-stage Phase II design
    oc.twostage.bdry        Two-stage boundary operating characteristics
 ph2single               Exact single stage Phase II design
+power.ladesign          Power of k-sample rank test under Lehmann alternative
 pselect                 Probability of selection under pick the winner rule
 toxbdry                 Stopping rule for toxicity monitoring
    bdrycross.prob          Operating characteristics of a specific boundary

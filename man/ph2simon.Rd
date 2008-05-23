@@ -51,3 +51,5 @@ ph2simon(pu, pa, ep1, ep2, nmax=100)
   Designs for Phase II Clinical Trials. \emph{Controlled Clinical
     Trials}  22, 367-372.
 }
+
+\keyword{design}
