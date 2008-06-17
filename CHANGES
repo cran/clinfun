@@ -1,3 +1,7 @@
+06/17/2008:  Version 0.8.1
+
+   o Fixed gsdesign to allow for fixed sample designs.  Help file fixed.
+
 05/23/2008:  Version 0.8.0
 
    o New version with one new function power.lehmann.design

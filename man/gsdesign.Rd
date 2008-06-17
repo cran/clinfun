@@ -1,3 +1,4 @@
+
 \name{gsdesign}
 \title{Group Sequential Designs}
 \alias{gsdesign}
@@ -19,13 +20,15 @@ gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, power = 0.8,
   tol=0.0001)
 }
 \arguments{
-  \item{ifrac}{information fraction ratio of current to total sample
-    size of number of events.}
+  \item{ifrac}{information fraction or the ratio of current sample size
+    or number of events to the total sample size or number of events.
+    This should be an increasing vector of numbers from 0 to 1 with the
+    last one being 1.  If just 1 is given a fixed sample design is derived.}
   \item{pC}{prob of success of the standard therapy (for binomial data)}
   \item{pE}{prob of success of the experimental therapy (for binomial data)}
   \item{delta}{true difference in means (for normal data)}
   \item{sd}{standard deviation (for normal data)}
-  \item{haz.ratio}{hazard ratio (for survival comarison)}
+  \item{haz.ratio}{hazard ratio (for survival comparison)}
   \item{sig.level}{significance level (type I error probability)}
   \item{power}{power of test (1 minus type II error probability)}
   \item{delta.eb}{power for efficacy boundary in the Pocock (power=0) to
