@@ -9,7 +9,8 @@
   toxicity monitoring based repeated significance testing.
 }
 \usage{
-toxbdry(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5)
+toxbdry(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5,
+          priority=c("null","alt"))
 bdrycross.prob(n, r, ptox)
 \method{print}{toxbdry}(x, \dots)
 }
@@ -29,6 +30,9 @@ bdrycross.prob(n, r, ptox)
   \item{ngrid}{the number of toxicity rates from pLo to pHi for which
     the operating characteristics are computed.}
   \item{niter}{the number of iterations run to obtain the boundary.}
+  \item{priority}{the error threshold to prioritize when the max sample 
+    size is too small to have both error thresholds satisfied. Default
+    is the null i.e. error under pLo.}
   \item{x}{object returned by the function toxbdry.}
   \item{...}{additional arguments to print.}
 }
@@ -54,5 +58,6 @@ bdrycross.prob(n, r, ptox)
 \examples{
   toxbdry(0.2, 0.35, c(20,40,60,75))
   toxbdry(0.2, 0.3, c(20,40,60,75), cP0=0.15, cP1=0.8)
-  toxbdry(0.1, 0.3, 1:30) # continuous monitoring
+  toxbdry(0.1, 0.3, 2:30) # continuous monitoring
+  toxbdry(0.1, 0.3, 2:25, priority="alt") # prioritize cP1 error threshold
 }

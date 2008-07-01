@@ -1,3 +1,8 @@
+06/20/2008:  Version 0.8.2
+
+   o toxbdry allows the error threshold to prioritize when the sample 
+     size is too small to have both satisfied.
+
 06/17/2008:  Version 0.8.1
 
    o Fixed gsdesign to allow for fixed sample designs.  Help file fixed.
