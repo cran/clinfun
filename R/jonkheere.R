@@ -37,11 +37,12 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
     jtmean <- jtmean + na*nb/2
     jtvar <- jtvar + na*nb*(na+nb+1)/12
   }
+# jtrsum will be small if data are increasing and large if decreasing
   STATISTIC <- jtrsum
   names(STATISTIC) <- "JT"
   if (TIES | (n > 50)) {
     zstat <- (STATISTIC-jtmean)/sqrt(jtvar)
-    PVAL <- 1 - pnorm(zstat)
+    PVAL <- pnorm(zstat)
     PVAL <- switch(alternative,
                    "two.sided" = 2*min(PVAL, 1-PVAL),
                    "increasing" = PVAL,

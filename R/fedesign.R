@@ -116,7 +116,7 @@ mCPS <- function(p1,p2,alpha,power,r) {
 }
 
 CPS.ssize <- function(p1,p2,alpha=0.05,power=0.8,r=1) {
-  m <- mCPS(p1,p2,alpha=0.05,power=0.8,r=1)
+  m <- mCPS(p1,p2,alpha=alpha,power=power,r=r)
   xx <- matrix(0, 1, 3)
   xx[1,1] <- m
   xx[1,2] <- m*r
