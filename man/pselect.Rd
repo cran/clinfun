@@ -7,25 +7,30 @@
   response rate under the pick the winner rule.
 }
 \usage{
-pselect(n, p, min.diff=1, min.resp=0)
+pselect(n, p, min.diff=NULL, min.resp=NULL)
 }
 \arguments{
-  \item{n}{sample size for each treatment arm.} 
+  \item{n}{sample size for each treatment arm.  This is either a single
+    integer or a vector of two integers for the special case of
+    comparing two treatments with unequal sample sizes}  
   \item{p}{vector of response rates for the treatments.}
-  \item{min.diff}{the minimum number by which the number of responses
-    should exceed for the treatment arm to be chosen.  This must be a
-    positive integer (default=1).}
+  \item{min.diff}{this is the number of responses or the rate by which
+    the best treatment should be superior to the others to be chosen.
+    This must be a positive integer or a rate between 0 and 1.  If
+    missing it defaults to 1 for the equal sample size case but quits
+    with a warning for the unequal sample size case.
+  }
   \item{min.resp}{the minimum number of responses in each treatment arm
-    for it to be considered further (default=0).}
+    for it to be considered further. If missing defaults to 0.}
 }
 \value{
   the function returns a list with:
-  \item{prob.none.selected}{is the probability that no treatment has at
-    least min.resp responses. this element is present only if min.resp
-    is greater than 0.}
-  \item{prob.not.unique}{this is the probability that the best treatment
-    has min.resp responses but exceeds the second best by less than
-    min.diff responses.}
+  \item{prob.none.worthy}{is the probability that no treatment has the
+    minimum number of responses specified in min.resp. this element is
+    present only if min.resp is greater than 0 for at least one arm.}
+  \item{prob.inconclusive}{this is the probability that the best treatment
+    has the requisite min.resp responses but exceeds the second best by
+    less than min.diff responses (rate).}
   \item{prob.selection}{this is a matrix which for each treatment gives
     the response probability and the probability of selecting it
     i.e. the number of responses in the chosen arm is at least min.resp
@@ -35,6 +40,7 @@ pselect(n, p, min.diff=1, min.resp=0)
   pselect(18, c(0.2, 0.2, 0.2)) # selection when no diffrence i.e. type I error
   pselect(18, c(0.2, 0.2, 0.4)) # selection probability
   pselect(26, c(0.2, 0.2, 0.4), min.diff=2, min.resp=3)
+  pselect(c(27,54), c(0.5, 0.65), min.diff=0.05) # unequal sample size case
 }
 \references{
   Simon R, Wittes RE, Ellenberg SS. (1985). Randomized phase II clinical

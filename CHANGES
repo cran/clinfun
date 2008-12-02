@@ -1,3 +1,10 @@
+12/02/2008:  Version 0.8.4
+
+   o Added functionality to pselect.  It can do unequal sample size for 
+     the case of two treatments.  min.diff can be specified as a rate 
+     instead of number of responses.  Output element names changed to be
+     more descriptive.
+
 11/18/2008:  Version 0.8.3
 
    o Fixed the bug CPS.ssize. call inside used fixed alpha, power & r.
