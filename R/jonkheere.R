@@ -25,6 +25,7 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
   n <- length(x)
   if(length(g) != n) stop("lengths of data values and group don't match")
   TIES <- length(unique(x)) != n
+  if(TIES) warning("TIES: p-value based on normal approximation")
   gsize <- table(g)
   ng <- length(gsize)
   cgsize <- c(0,cumsum(gsize))
@@ -37,7 +38,9 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
     jtmean <- jtmean + na*nb/2
     jtvar <- jtvar + na*nb*(na+nb+1)/12
   }
-# jtrsum will be small if data are increasing and large if decreasing
+# this jtrsum will be small if data are increasing and large if decreasing
+# to reverse this use 2*jtmean - jtrsum  
+  jtrsum <- 2*jtmean - jtrsum
   STATISTIC <- jtrsum
   names(STATISTIC) <- "JT"
   if (TIES | (n > 50)) {
@@ -45,11 +48,11 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
     PVAL <- pnorm(zstat)
     PVAL <- switch(alternative,
                    "two.sided" = 2*min(PVAL, 1-PVAL),
-                   "increasing" = PVAL,
-                   "decreasing" = 1-PVAL)
+                   "increasing" = 1-PVAL,
+                   "decreasing" = PVAL)
   } else {
-    iPVAL <- sum(djonckheere(gsize)[1:(jtrsum+1)])
-    dPVAL <- 1-sum(djonckheere(gsize)[1:(jtrsum)])
+    dPVAL <- sum(djonckheere(gsize)[1:(jtrsum+1)])
+    iPVAL <- 1-sum(djonckheere(gsize)[1:(jtrsum)])
     PVAL <- switch(alternative,
                    "two.sided" = 2*min(iPVAL, dPVAL),
                    "increasing" = iPVAL,

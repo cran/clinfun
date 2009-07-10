@@ -22,7 +22,10 @@
   permlogrank is the permutation version of k-sample survdiff
   
   jonckheere.test is the exact (permutation) version of the
-  Jonckheere-Terpstra test.  The asymptotic version is equivalent to
+  Jonckheere-Terpstra test.  It uses the statistic
+  \deqn{\sum_{k<l} \sum_{ij} I(X_{ik} < X_{jl}) + 0.5 I(X_{ik} =
+    X_{jl}),} where \eqn{i, j} are observations in groups \eqn{k} and
+  \eqn{l} respectively.  The asymptotic version is equivalent to
   cor.test(x, g, method="k").
 }
 \keyword{htest}
