@@ -20,8 +20,10 @@ pselect <- function(n, p, min.diff=NULL, min.resp=NULL) {
     psel <- rep(0, ntrt)
     for(i in min.resp:n) {
       i0 <- max(i-min.diff, min.resp-1)
-      pb <- pbinom(i0, n, p)
-      psel <- psel + dbinom(i,n,p)*prod(pb)/pb
+      if (i0 >= 0) {
+        pb <- pbinom(i0, n, p)
+        psel <- psel + dbinom(i,n,p)*prod(pb)/pb
+      }
     }
     if (min.resp > 0)  out$prob.none.worthy <- psel0
   }
