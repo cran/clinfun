@@ -5,6 +5,7 @@
 \alias{CPS.ssize}
 \alias{fe.mdor}
 \alias{fe.power}
+\alias{or2pcase}
 \keyword{design}
 \description{Calculates sample size, effect size and power based on
   Fisher's exact test}
@@ -13,6 +14,7 @@ fe.ssize(p1,p2,alpha=0.05,power=0.8,r=1,npm=5,mmax=1000)
 CPS.ssize(p1,p2,alpha=0.05,power=0.8,r=1)
 fe.mdor(ncase,ncontrol,pcontrol,alpha=0.05,power=0.8)
 fe.power(d, n1, n2, p1, alpha = 0.05)
+or2pcase(pcontrol, OR)
 }
 \arguments{
   \item{p1}{response rate of standard treatment}
@@ -30,6 +32,7 @@ fe.power(d, n1, n2, p1, alpha = 0.05)
     range (+/- npm) to get the exact power}
   \item{mmax}{the maximum group size for which exact power is
     calculated}
+  \item{OR}{odds-ratio}
 }
 \details{
 CPS.ssize returns Casagrande, Pike, Smith sample size which is a very
@@ -43,6 +46,9 @@ fe.mdor return a 3x2 matrix with Schlesselman, CPS and Fisher's exact
 minimum detectable odds ratios and the corresponding power.
 
 fe.power returns a Kx2 matrix with probabilities (p2) and exact power.
+
+or2pcase give the probability of disease among the cases for a given
+probability of disease in controls (pcontrol) and odds-ratio (OR).
 }
 \references{
   Casagrande, JT., Pike, MC. and Smith PG. (1978). An improved

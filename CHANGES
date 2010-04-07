@@ -1,3 +1,12 @@
+04/07/2010:  Version 0.8.8
+
+   o Change coxphCPE to reflect the fact that model.matrix.coxph doesn't 
+     have an intercept term.
+
+02/25/2010:  Version 0.8.8
+
+   o Added the function or2pcase
+
 11/20/2009:  Version 0.8.7
 
    o Fixed the 0/0 bug in the revised pselect

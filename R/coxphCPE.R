@@ -9,7 +9,7 @@ coxphCPE <- function(phfit) {
   p <- length(phfit$coefficients)
   vbetahat <- phfit$var
   xbeta <- phfit$linear.predictors
-  xMat <- as.matrix(model.matrix(phfit)[,-1])
+  xMat <- as.matrix(model.matrix(phfit))
   bw <- 0.5*sd(xbeta)*(n^(-1/3))
   zzz <- .Fortran("cpesub",
                   as.integer(n),

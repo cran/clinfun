@@ -142,3 +142,5 @@ orCPS <- function(ncase,ncontrol,pcontrol,alpha=0.05,power=0.8) {
   d0 <- uniroot(ff, lower=0.0001, upper=1-pcontrol-0.0001, r=r, ncontrol=ncontrol, pcontrol=pcontrol, alpha=alpha, power=power)$root
   (pcontrol+d0)*(1-pcontrol)/(pcontrol*(1-pcontrol-d0))
 }
+
+or2pcase <- function(pcontrol, OR) {OR*pcontrol/(1 + (OR -1)*pcontrol)}
