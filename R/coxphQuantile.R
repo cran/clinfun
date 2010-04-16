@@ -12,5 +12,5 @@ coxphQuantile <- function(phfit, xrange, p=0.5, whichx=1, otherx=NULL, ...)
   sx <- cvtmean[whichx] + log(log(p)/log(ssurv))/loghr[whichx]
   ii <- which(sx >= xrange[1] & sx <= xrange[2])
   lines(sx[ii], stime[ii], type="S", ...)
-  invisible(as.data.frame(list(sx,stime)))
+  invisible(as.data.frame(list(cvt=sx,time=stime)))
 }

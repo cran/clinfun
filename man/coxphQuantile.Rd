@@ -29,7 +29,7 @@
 \examples{
 \dontrun{  library(survival)
   data(pbc)
-  pbcfit <- coxph(Surv(time, status) ~ trt + log(copper), pbc,
+  pbcfit <- coxph(Surv(time, status==2) ~ trt + log(copper), pbc,
     subset=(trt>0 & copper>0)) 
   plot(log(pbc$copper[pbc$trt>0 & pbc$copper>0]), pbc$time[pbc$trt>0 &
     pbc$copper>0], pch=c("o","x")[1+pbc$status[pbc$trt>0 & pbc$copper>0]], 

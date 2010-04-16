@@ -1,3 +1,8 @@
+04/16/2010:  Version 0.8.10
+
+   o variable names for returned data.frame in coxphQuantile
+   o examples in coxphQuantile & coxphCPE use status==2
+
 04/09/2010:  Version 0.8.9
 
    o check Rversion so that coxphCPE works for any version (see 0.8.9)

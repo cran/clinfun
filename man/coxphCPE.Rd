@@ -18,7 +18,7 @@
 \examples{
 \dontrun{ library(survival)
   data(pbc)
-  pbcfit <- coxph(Surv(time, status) ~ trt + log(copper), pbc,
+  pbcfit <- coxph(Surv(time, status==2) ~ trt + log(copper), pbc,
     subset=(trt>0 & copper>0))
   coxphCPE(pbcfit)
 }}
