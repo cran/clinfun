@@ -10,14 +10,14 @@
 }
 \usage{
 gsdesign.binomial(ifrac, pC, pE, sig.level = 0.05, power = 0.8,
-  delta.eb=0.5, delta.fb = 0, alternative = c("two.sided", "one.sided"),
-  tol=0.0001) 
+  delta.eb=0.5, delta.fb = NULL, alternative = c("two.sided", "one.sided"),
+  tol=0.00001, ...) 
 gsdesign.normal(ifrac, delta, sd = 1, sig.level = 0.05, power = 0.8,
-  delta.eb = 0.5, delta.fb = 0, alternative = c("two.sided", "one.sided"),
-  tol=0.0001)
+  delta.eb = 0.5, delta.fb = NULL, alternative = c("two.sided", "one.sided"),
+  tol=0.00001, ...)
 gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, power = 0.8,
-  delta.eb = 0.5, delta.fb = 0, alternative = c("two.sided", "one.sided"),
-  tol=0.0001)
+  delta.eb = 0.5, delta.fb = NULL, alternative = c("two.sided", "one.sided"),
+  tol=0.00001, ...)
 }
 \arguments{
   \item{ifrac}{information fraction or the ratio of current sample size
@@ -34,16 +34,26 @@ gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, power = 0.8,
   \item{delta.eb}{power for efficacy boundary in the Pocock (power=0) to
     O'Brien-Fleming (power=0.5) family (default is 0.5)}
   \item{delta.fb}{power for futility boundary in the Pocock (power=0) to
-    O'Brien-Fleming (power=0.5) family (default is 0.5)}
+    O'Brien-Fleming (power=0.5) family (default is NULL i.e. no futility
+    boundary is requested.)}
   \item{alternative}{one- or two-sided test.}
   \item{tol}{tolerance level for multivariate normal probability
     computation.}
+  \item{...}{additional options passed on the pmvnorm function.}
 }
 \value{
-  a list with ifrac, sig.level, power, alternative, delta.eb and:
+  a list with ifrac, sig.level, power, alternative, delta.eb, delta.fb and:
   \item{efbdry}{the critical value to use at the different looks.}
+  \item{futbdry}{the critical value to use at the different looks.}
   \item{sample.size}{the sample size per arm for binomial/normal data.}
   \item{num.events}{the total number of failures which should be
     converted to number of subjects using censoring proportion.}  
-}  
+}
+\details{
+  The futility boundary is not returned when delta.fb is not specified
+  i.e. stopping for futility is not requested.  The futility boundary is
+  non-binding.  That is the significance level is not adjusted to account
+  for early stopping for utility.  This makes the test a bit conservative
+  in that the true size is less than the nominal level.
+}
 \keyword{design}
