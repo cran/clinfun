@@ -1,3 +1,8 @@
+11/03/2010:  Version 0.9.1
+
+   o Added functions for the area and permutation tests to compare ROC.
+   o Checks that min.diff is greater than 0 in pselect.
+
 11/01/2010:  Version 0.9.0
 
    o Added a non-binding futility boundary to gsdesign

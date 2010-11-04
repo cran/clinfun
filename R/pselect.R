@@ -14,6 +14,7 @@ pselect <- function(n, p, min.diff=NULL, min.resp=NULL) {
   if (nlen == 1) {
     if (missing(min.resp)) min.resp <- 0
     if (missing(min.diff)) min.diff <- 1
+    if (min.diff <= 0) stop("min.diff should be positive")
     if (min.diff < 1) min.diff <- ceiling(n*min.diff)
     if (min.diff != round(min.diff)) stop("if min.diff > 1 it should be a positive integer")
     psel0 <- prod(pbinom(min.resp-1, n, p))
