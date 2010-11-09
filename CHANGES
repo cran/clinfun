@@ -1,3 +1,7 @@
+11/05/2010:  Version 0.9.2
+
+   o Added functions to compute and plot the empirical ROC curve.
+
 11/03/2010:  Version 0.9.1
 
    o Added functions for the area and permutation tests to compare ROC.

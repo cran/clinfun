@@ -18,5 +18,9 @@ ph2simon                Simon's 2-stage Phase II design
 ph2single               Exact single stage Phase II design
 power.ladesign          Power of k-sample rank test under Lehmann alternative
 pselect                 Probability of selection under pick the winner rule
+ROCanalysis             Functions to plot and compare ROC curves.
+   roc.area.test           Nonparametric area under the ROC curve
+   roc.curve               Empirical ROC curve
+   roc.perm.test           Permutation test to compare ROC curve
 toxbdry                 Stopping rule for toxicity monitoring
    bdrycross.prob          Operating characteristics of a specific boundary
