@@ -31,7 +31,7 @@ ph2simon <- function(pu, pa, ep1, ep2, nmax = 100) {
   ph2 <- list()
   ph2out <- cbind(matrix(zz$bdry,nmax,4),matrix(zz$peten,nmax,2))
   ph2out <- ph2out[ph2out[,5]!=0,]
-  if(is.null(dim(ph2out))) {
+  if(nrow(ph2out)==0) {
     errmesg <- paste("  No feasible solution found. \n\tIncrease maximum sample size.  Current nmax value = ",nmax,".",sep="")
     stop(message=errmesg)
   }
