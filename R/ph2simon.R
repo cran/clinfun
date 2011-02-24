@@ -84,3 +84,61 @@ oc.twostage.bdry <- function(pu, pa, r1, n1, r, n){
   names(out) <- c("P(reject H0 | p0)","P(reject H0 | p1)","PET(p0)","EN(p0)")
   out
 }
+
+twostage.inference <- function(x, r1, n1, n, pu, alpha=0.05) {
+  out <- list()
+  n2 <- n - n1
+# UMVUE from Jung & Kim (2004) Stats in Medicine
+  xlo <- max(r1 + 1, x - n2)
+  xhi <- min(x, n1)
+  x1 <- xlo:xhi
+  if (x <= r1) pumvue <- x/n1
+  else pumvue <- sum(choose(n1-1, x1-1)*choose(n2, x-x1))/sum(choose(n1, x1)*choose(n2, x-x1))
+  out$umvue <- pumvue
+# p-value and CI from Koyama & Chen (2008) Stats in Medicine
+  x1 <- (r1+1):n1
+  if (x <= r1) p.value <- 1 - pbinom(x-1, n1, pu)
+  else p.value <- sum(dbinom(x1, n1, pu)*(1-pbinom(x-x1-1,n2,pu)))
+  out$p.value <- p.value
+# CI steps: first bracket the LCL and UCL
+  pp <- seq(0, 1, by=0.01)
+  pval <- rep(0, 101)
+  if (x <= r1) {
+    pval <- 1 - pbinom(x-1, n1, pp)
+  } else {
+    x2 <- x - x1 - 1
+    pval <- sapply(pp, function(p, x1, x2, n1, n2) {
+      sum(dbinom(x1, n1, p)*(1-pbinom(x2,n2,p)))
+    }, x1, x2, n1, n2)
+  }
+# LCL & UCL indices
+  ii <- which(pval > alpha)[1]-1
+  jj <- which(pval >= 1-alpha)[1]-1
+# LCL refinement
+  pp0 <- pp[ii] + pp/100
+  pval <- rep(0, 101)
+  if (x <= r1) {
+    pval <- 1 - pbinom(x-1, n1, pp0)
+  } else {
+    x2 <- x - x1 - 1
+    pval <- sapply(pp0, function(p, x1, x2, n1, n2) {
+      sum(dbinom(x1, n1, p)*(1-pbinom(x2,n2,p)))
+    }, x1, x2, n1, n2)
+  }
+  LCL <- pp0[which(pval > alpha)[1]]
+  out$LCL <- LCL
+# UCL refinement
+  pp0 <- pp[jj] + pp/100
+  pval <- rep(0, 101)
+  if (x <= r1) {
+    pval <- 1 - pbinom(x-1, n1, pp0)
+  } else {
+    x2 <- x - x1 - 1
+    pval <- sapply(pp0, function(p, x1, x2, n1, n2) {
+      sum(dbinom(x1, n1, p)*(1-pbinom(x2,n2,p)))
+    }, x1, x2, n1, n2)
+  }
+  UCL <- pp0[which(pval >= 1-alpha)[1]-1]
+  out$UCL <- UCL
+  unlist(out)
+}

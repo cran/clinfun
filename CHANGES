@@ -1,3 +1,7 @@
+02/24/2011:  Version 0.9.4
+
+   o twostage.inference for umvue, p-value and CI for 2 stage design.
+
 12/06/2010:  Version 0.9.3
 
    o ph2simon was testing whether dim is null for feasible solution.

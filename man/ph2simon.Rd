@@ -37,6 +37,10 @@ ph2simon(pu, pa, ep1, ep2, nmax=100)
   sample size as in Jung et al., 2001
 }
 
+\seealso{
+  \code{\link{twostage.inference}}, \code{\link{oc.twostage.bdry}}
+}
+
 \examples{
   ph2simon(0.2, 0.4, 0.1, 0.1)
   ph2simon(0.2, 0.35, 0.05, 0.05)
