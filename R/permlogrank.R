@@ -5,7 +5,7 @@
 
 permlogrank <- function(formula, data, subset, na.action, rho=0, nperm=5000) {
   call <- match.call()
-  m <- match.call(expand=FALSE)
+  m <- match.call(expand.dots=FALSE)
   m$nperm <- NULL
   m[[1]] <- as.name("survdiff")
   rval <- eval(m)

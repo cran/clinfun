@@ -211,7 +211,7 @@ gsd.drift <- function(ifrac, sig.level = 0.05, pow = 0.8, delta.eb = 0.5, delta.
     } else {
       out$effbdry <- qnorm(1-sig.level/2)
     }
-    out$drift <- out$effbdry + qnorm(pow)
+    out$drift0 <- out$effbdry + qnorm(pow)
   } else {
     if (!all(diff(ifrac) > 0)) stop("information fraction (ifrac) values should be increasing")
     if (futility) {

@@ -1,3 +1,7 @@
+03/09/2011:  Version 0.9.5
+
+   o bug fix: gsdesign funtions not returning the sample size / # events.
+
 02/24/2011:  Version 0.9.4
 
    o twostage.inference for umvue, p-value and CI for 2 stage design.

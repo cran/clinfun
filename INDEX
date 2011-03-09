@@ -15,6 +15,7 @@ permtests               Permutation versions of some common tests
    permlogrank             Survival comparisons with permutation reference
 ph2simon                Simon's 2-stage Phase II design
    oc.twostage.bdry        Two-stage boundary operating characteristics
+   twostage.inference      Inference following a two-stage design for response
 ph2single               Exact single stage Phase II design
 power.ladesign          Power of k-sample rank test under Lehmann alternative
 pselect                 Probability of selection under pick the winner rule
