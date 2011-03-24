@@ -19,17 +19,26 @@ roc.area.test <- function(markers, status) {
   out$var <- ((nn - 1)^2 * var(areajk[1:nn,  ]))/nn + ((nd - 1)^2 * 
                 var(areajk[nn + (1:nd),  ]))/nd
   if (nvar == 2) {
-    out$stat <- (out$area[2] - out$area[1])/sqrt(out$var[1,1] +
-       out$var[2,2] - 2*out$var[2,1])
-    out$p.value <- 2*pnorm(-abs(out$stat))
+    if (out$area[2] != out$area[1]) {
+      out$stat <- (out$area[2] - out$area[1])/sqrt(out$var[1,1] +
+         out$var[2,2] - 2*out$var[2,1])
+      out$p.value <- 2*pnorm(-abs(out$stat))
+    } else {
+      out$stat <- out$p.value <- 0
+    }
   }
   if (nvar > 2) {
     A <- diag(1, nvar) - matrix(1, nvar, nvar)/nvar
     x <- (A%*%as.matrix(out$area))[-1]
     v <- (A%*%out$var%*%A)[-1,-1,drop=FALSE]
-    out$stat <- sum(solve(v,x)*x)
-    out$p.value <- 1 - pchisq(out$stat, df=nvar -1)
-    out$df <- nvar - 1
+    if (qr(v)$rank == nvar - 1) {
+      out$stat <- sum(solve(v,x)*x)
+      out$p.value <- 1 - pchisq(out$stat, df=nvar -1)
+      out$df <- nvar - 1
+    } else {
+      warning("Some markers are perfectly correlated")
+      out$stat <- out$p.value <- out$df <- NA
+    }
   }
   class(out) <- "roc.area.test"
   out
@@ -44,7 +53,7 @@ print.roc.area.test <- function(x, ...) {
     if (k == 2) {
       msg <- "from standard normal reference"
     } else {
-      msg <- paste("from chi-square (df = ", k-1, ") reference", sep="")
+      msg <- paste("from chi-square (df = ", x$df, ") reference", sep="")
     }
     cat(" ", k, "markers with AUC",  x$area, "\n")
     cat("  test statistic =", x$stat, "\n")

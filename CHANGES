@@ -1,3 +1,8 @@
+03/24/2011:  Version 0.9.6
+
+   o bug fix: roc.area.test gave NaN as the statistic and p-value when
+     the markers are identical. Changed it to 0.
+
 03/09/2011:  Version 0.9.5
 
    o bug fix: gsdesign funtions not returning the sample size / # events.
