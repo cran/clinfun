@@ -1,20 +1,26 @@
 roc.curve <- function(marker, status, method=c("empirical")) {
+  if (any(!is.finite(marker))) stop("Marker values should be finite")
+  if (any(!is.finite(status))) stop("All status should be finite")
   method <- match.arg(method)
-  ux <- sort(unique(marker))
+  ii <- order(marker)
+  nu <- length(unique(marker)) + 1
   n <- length(marker)
   n1 <- sum(status)
   n0 <- n - n1
-  x0 <- marker[status == 0]
-  x1 <- marker[status == 1]
+  zzz <- .Fortran("roccurve",
+                  as.integer(n),
+                  as.integer(n0),
+                  as.integer(n1),
+                  as.double(marker[ii]),
+                  as.integer(status[ii]),
+                  as.integer(nu),
+                  tpr=double(nu),
+                  fpr=double(nu))
   out <- NULL
-  out$tpr <- c(sapply(ux, function(y, x) {
-    sum(x >= y)
-  } , x1)/n1, 0)
-  out$fpr <- c(sapply(ux, function(y, x) {
-    sum(x >= y)
-  } , x0)/n0, 0)
   out$marker <- marker
   out$status <- status
+  out$tpr <- zzz$tpr
+  out$fpr <- zzz$fpr
   class(out) <- "roc.curve"
   out
 }

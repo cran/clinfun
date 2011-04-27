@@ -8,7 +8,7 @@ c     fcl stores the lower (lcp) and upper (ucp) critical values
       double precision alpha,lgamma(nmx)
 c     lgamma stores log(n!) for 0,1,...,n1+n2 sent from S-plus
       integer n,k,lcp,ucp,ii
-      double precision dk,hgpc,hgp,hgps,alpha2
+      double precision hgpc,hgp,hgps,alpha2
 c     hgp  - hypergeometric probabilities of lower and upper points
 c     hgps - sum of hypergeometric probabilities of rejection region
 c     hgpc - common factor of hypergeometric probabilities for n1,n2,k
@@ -47,9 +47,9 @@ c     store conditional critical regions
 
 c     Computes unconditional power for Fisher's exact rejection region
       subroutine fepow(nmx,n1,n2,p1,p2,fcl,lgamma,upow)
-      integer n1,n2,m,fcl(nmx,2)
+      integer nmx,n1,n2,fcl(nmx,2)
       double precision p1,p2,lgamma(nmx),upow
-      integer n,i,k,lcp,ucp
+      integer n,i,j,k,lcp,ucp
       double precision bprob1,bprob2,lp1,l1p1,lp2,l1p2
 
       n = n1 + n2
@@ -122,7 +122,7 @@ c     Exact power for the CPS mdor
       integer nmx,npm,fcl(nmx,2)
       double precision p1,p2,r,alpha,power,lgamma(nmx),ossiz(2,3)
 c     ossiz contains the Fleiss and FE sample size and power
-      integer n1,n2,n,i,n1f,n2f,fen1,fen2
+      integer n1,n2,i,n1f,n2f,fen1,fen2
       double precision upow
 
       n1f = int(ossiz(1,1)) + 1

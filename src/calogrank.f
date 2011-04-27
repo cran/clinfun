@@ -24,7 +24,7 @@ c     bb is the bandwidth for the kernel
 
 
       integer i,j,ic,g,gr,gc
-      double precision rn,kernel,kwtij
+      double precision rn,kernel,kwtii,kwtij
       external kernel
 
       rn = dfloat(n)

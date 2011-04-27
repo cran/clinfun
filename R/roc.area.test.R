@@ -1,4 +1,6 @@
 roc.area.test <- function(markers, status) {
+  if (any(!is.finite(markers))) stop("Marker values should be finite")
+  if (any(!is.finite(status))) stop("All status should be finite")
   markers <- as.matrix(markers)[order(status), , drop=FALSE]
   nvar <- ncol(markers)
   nn <- sum(status == 0)
@@ -24,7 +26,8 @@ roc.area.test <- function(markers, status) {
          out$var[2,2] - 2*out$var[2,1])
       out$p.value <- 2*pnorm(-abs(out$stat))
     } else {
-      out$stat <- out$p.value <- 0
+      out$stat <- 0
+      out$p.value <- 1
     }
   }
   if (nvar > 2) {

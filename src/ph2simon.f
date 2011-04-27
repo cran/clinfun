@@ -11,7 +11,7 @@ c------------------------------------------------------------------------------
      1     bprob0(nmax1),bprob1(nmax1)
 
       double precision pet,ess,dn1,dn2,essn
-      integer i,j,n1,n2,n,r1,r,ind1,ind2,ind21,rr
+      integer i,n1,n2,n,r1,r,ind1,ind2,ind21,rr
 
       do 100 n = 2,nmax
          essn = dfloat(n)
@@ -58,5 +58,5 @@ c------------------------------------------------------------------------------
  90      continue
  100  continue
 
- 110  return
+      return
       end

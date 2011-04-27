@@ -1,3 +1,14 @@
+04/27/2011:  Version 0.9.7
+
+   o fixed fortran code to address gfortran-4.6 warnings
+   o added ktau a faster implementation of cor(x, y, method="k").
+     not in NAMESPACE. Should be called using clinfun:::ktau
+
+04/25/2011:  Version 0.9.7
+
+   o bug fix: roc.area.test integer overflow for large nn*nd.
+   o use sort function to speed up roc curve and area estimation.
+
 03/24/2011:  Version 0.9.6
 
    o bug fix: roc.area.test gave NaN as the statistic and p-value when

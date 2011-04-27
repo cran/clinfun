@@ -15,7 +15,7 @@ c
      1     odeath(ng), edeath(ng), lrvar(ng, ng)
 
 
-      integer itim, istr, i, j, k, l, jr, jc
+      integer itim, istr, i, j, k, jr, jc
       double precision nrisk, efactr, vfactr
 
       k = n+1
