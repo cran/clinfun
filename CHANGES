@@ -1,3 +1,8 @@
+09/13/2011:  Version 0.9.8
+
+   o fixed bug in print.gsdesign for binomial case (p1,p2 instead of pC,pE)
+   o ROC functions now check that there are at least one each of status=0,1
+
 04/27/2011:  Version 0.9.7
 
    o fixed fortran code to address gfortran-4.6 warnings

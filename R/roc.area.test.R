@@ -5,6 +5,7 @@ roc.area.test <- function(markers, status) {
   nvar <- ncol(markers)
   nn <- sum(status == 0)
   nd <- sum(status == 1)
+  if (nn*nd == 0) stop("Status vector should have least one each of 0 & 1")
   n <- nn + nd
   zzz <- .Fortran("rocarea",
                   as.integer(n),

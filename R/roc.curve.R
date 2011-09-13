@@ -7,6 +7,7 @@ roc.curve <- function(marker, status, method=c("empirical")) {
   n <- length(marker)
   n1 <- sum(status)
   n0 <- n - n1
+  if (n0*n1 == 0) stop("Status vector should have least one each of 0 & 1")
   zzz <- .Fortran("roccurve",
                   as.integer(n),
                   as.integer(n0),

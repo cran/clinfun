@@ -214,6 +214,7 @@ gsd.drift <- function(ifrac, sig.level = 0.05, pow = 0.8, delta.eb = 0.5, delta.
     out$drift0 <- out$effbdry + qnorm(pow)
   } else {
     if (!all(diff(ifrac) > 0)) stop("information fraction (ifrac) values should be increasing")
+    if (ifrac[1] <= 0) stop("information fraction (ifrac) values should be positive")
     if (futility) {
       out <- gsd.drift.both(ifrac, delta.eb, delta.fb, sig.level, pow, alternative, tol)
     } else {
@@ -278,7 +279,7 @@ print.gsdesign <- function(x, ...) {
   if (class(x) != "gsdesign") stop("input shoud be a gsdesign class object")
   cat("\n Group sequential design for comparing", x$outcome, "data with ")
   switch(match(x$outcome, c("binary", "normal", "survival")),
-         cat("rates  pC =", x$p1,", pE =", x$p2, "\n"),
+         cat("rates  pC =", x$pC,", pE =", x$pE, "\n"),
          cat("delta =", x$delta, ", sd =", x$sd, "\n"),
          cat("hazard ratio =", x$haz.ratio, "\n"))
   cat("   power family of boundary; 0 (Pocock) to 0.5 (O'Brien-Fleming) \n\n")

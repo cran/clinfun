@@ -1,6 +1,9 @@
 roc.perm.test <- function(marker, status, marker2=NULL, group=NULL, nperm=2500, mp=NULL) {
+  if (any(!is.finite(marker))) stop("Marker values should be finite")
+  if (any(!is.finite(status))) stop("All status should be finite")
   if (sum(sapply(list(marker2, group), is.null)) != 1) stop("exactly one of marker2 or group must be specified")
   if (!is.null(marker2)) {
+    if (any(!is.finite(marker2))) stop("Marker2 values should be finite")
     out <- compareROC.paired(marker,marker2,status,nperm)
   } else {
     ug <- unique(group)
