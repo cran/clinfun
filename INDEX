@@ -4,6 +4,7 @@
 
 calogrank               Covariate adjusted logrank test
 coxphCPE                Gonen & Heller Concordance Probability Estimate
+coxphERR                Heller Explained Relative Risk
 coxphQuantile           Survival time quantile as a function of covariate
 fedesign                Trial Designs Based On Fisher's Exact Test
 gsdesign                Group Sequential Designs

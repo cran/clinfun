@@ -1,3 +1,8 @@
+01/18/2012:  Version 0.9.9
+
+   o Added coxphERR to calculate Heller's explained relative risk.
+   o Fixed NaN bug in toxbdry when priority="alt" is used.
+
 09/13/2011:  Version 0.9.8
 
    o fixed bug in print.gsdesign for binomial case (p1,p2 instead of pC,pE)

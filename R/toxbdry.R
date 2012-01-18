@@ -23,7 +23,7 @@ toxbdry <- function(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5, priority=c(
     pstop1 <- bdrycross.prob(n, r1, ptox)
   }
   iter <- 0
-  while (max(r0 - r1) > 1 | iter <= niter) {
+  while (max(r0 - r1) > 1 & iter <= niter) {
     iter <- iter + 1
     if (alpha1 - alpha0 > 0.01) {
       alpha <- (alpha1 + alpha0)/2
