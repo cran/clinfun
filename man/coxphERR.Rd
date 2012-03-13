@@ -33,7 +33,8 @@
  ovarianfit <- coxph(Surv(futime,fustat)~age+resid.ds+rx+ecog.ps,data=ovarian,x=T) 
  # Compute the explained relative risk (ERR) and its standard error (se.ERR) for the full model.
  coxphERR(ovarianfit)       
- # Compute the contribution of age and ECOG performance status to the explained relative risk. # Age and ECOG performance status are the first and fourth covariates in the model.
+ # Compute the contribution of age and ECOG performance status to the explained relative risk.
+ # Age and ECOG performance status are the first and fourth covariates in the model.
  coxphERR(ovarianfit, c(1,4))
 }}
 \references{

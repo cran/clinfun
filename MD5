@@ -1,5 +1,5 @@
-e350f764650d9799ac3e514bec4a6d98 *CHANGES
-f765b86820008c8c8d506bb6c8b0c8ab *DESCRIPTION
+fc350ce37fb7a0e6abe892d0e53559ec *CHANGES
+90dda52e195efe8c0b876e8d95fb7159 *DESCRIPTION
 610d55fab87a9eb0a094fbafc69ad96e *INDEX
 4fa7f2989c5570b0dd0bc195b82f704f *NAMESPACE
 08f887419ab4c6c1abc9e2110709276b *R/calogrank.R
@@ -18,11 +18,11 @@ bea757ed5d9af67b2288a219b7773e00 *R/pselect.R
 3ef2c265f4222e9ff2adb2ddcf693438 *R/roc.area.test.R
 79dad37deb29b567196b0cdd91c75852 *R/roc.curve.R
 660ead9cb7ce176192a72bd83581fef3 *R/roc.perm.test.R
-c7576e34a3545f4f5120c9353552fb20 *R/toxbdry.R
+3140d575a5e1c6661d3c9bd1f0c237e0 *R/toxbdry.R
 0b13f7b822030a64d36b5345a40803de *man/ROCanalysis.Rd
 19dbec95ccfbaa708b5b7552ac233ebe *man/calogrank.Rd
 208c1da2fb55a0b236ad60d112e7806c *man/coxphCPE.Rd
-34b31fb59517ac2040fe73c5e4e56524 *man/coxphERR.Rd
+861da07b3a3363f521f762b7da247299 *man/coxphERR.Rd
 d81b817a1470ba73422e1452236dd3ad *man/coxphQuantile.Rd
 701412f0caca05493773e478d4f6625e *man/fedesign.Rd
 7c88d27b6904df587f3edc7dfa5471a7 *man/gsdesign-internal.Rd
@@ -38,7 +38,7 @@ e12ccc9842b3e724e367b0a7076e542b *man/roc.area.test.Rd
 5fa00ee55779220b7194294f8e320560 *man/roc.curve.Rd
 f6d2f363cc75d261e619a129cf3944de *man/roc.perm.test-internal.Rd
 782af13661a3143ad31d9837f8c083f1 *man/roc.perm.test.Rd
-471325df40604e3c20aae99e375b1949 *man/toxbdry.Rd
+f6e1b9ad64988ee98ec890ee6dcc7426 *man/toxbdry.Rd
 fbf33f61f14c25aed892250ec29d3ec1 *man/twostage.inference.Rd
 4aee9cdeb018003dcd00d7174e64cebf *src/calogrank.f
 e5c4621e04d1fa846510c5509caa54ae *src/coxphCPE.f

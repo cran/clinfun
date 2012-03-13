@@ -1,16 +1,20 @@
-toxbdry <- function(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5, priority=c("null","alt")) {
+toxbdry <- function(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=10, delta=0, priority=c("null","alt")) {
 # decide whether to prioritize the type I (null) or the type II (alt) error.
   priority <- match.arg(priority)
   nlook <- length(n)
   ptox <- seq(pLo, pHi, length=ngrid)
+# boundary shape in the power family with (Pocock = 0 & O'Brien-Fleming = 0.5)
+  if (delta < 0 | delta > 0.5) stop("delta should be between 0 and 0.5")
+  ifrac <- n/n[nlook]
+  bdryden <- ifrac^delta
 # error threshold is cP0 for null and cP1 for alt
   ethresh <- ifelse(priority == "null", cP0, cP1)
   alpha0 <- cP0/nlook
-  r0 <- qbinom(1-alpha0, n, pLo)
+  r0 <- qbinom(1-pnorm(qnorm(alpha0)/bdryden), n, pLo)
 #  print(r0)
   pstop0 <- bdrycross.prob(n, r0, ptox)
   alpha1 <- cP0
-  r1 <- qbinom(1-alpha1, n, pLo)
+  r1 <- qbinom(1-pnorm(qnorm(alpha1)/bdryden), n, pLo)
 #  print(r1)
   pstop1 <- bdrycross.prob(n, r1, ptox)
 # depending on null or alt prob of interest is 1st or ngrid element
@@ -19,18 +23,18 @@ toxbdry <- function(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5, priority=c(
     alpha0 <- alpha1
     pstop0 <- pstop1
     alpha1 <- 1.4*alpha1
-    r1 <- qbinom(1 - alpha1, n, pLo)
+    r1 <- qbinom(1 - pnorm(qnorm(alpha1)/bdryden), n, pLo)
     pstop1 <- bdrycross.prob(n, r1, ptox)
   }
   iter <- 0
-  while (max(r0 - r1) > 1 & iter <= niter) {
+  while (sum(r0 - r1) > 1 & iter <= niter) {
     iter <- iter + 1
     if (alpha1 - alpha0 > 0.01) {
       alpha <- (alpha1 + alpha0)/2
     } else {
       alpha <- alpha0 + (alpha1-alpha0)*(ethresh-pstop0[ii,2])/(pstop1[ii,2]-pstop0[ii,2])
     }
-    r <- qbinom(1-alpha, n, pLo)
+    r <- qbinom(1-pnorm(qnorm(alpha)/bdryden), n, pLo)
 #    print(alpha)
 #    print(r)
     pstop <- bdrycross.prob(n, r, ptox)
@@ -48,7 +52,7 @@ toxbdry <- function(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5, priority=c(
   bdry.oc <- cbind(pstop1, pstop0[,2:4])
   colnames(bdry.oc)[2:7] <- c("pcross.lo", "pstop.lo", "ess.lo", "pcross.hi", "pstop.hi", "ess.hi")
   if((pstop1[1,2] > cP0 & pstop0[1,2] > cP0) | (pstop1[ngrid,2] < cP1 & pstop0[ngrid,2] < cP1)) warning(paste("Max sample size", n[nlook], "may be small for the specified stopping probabilities\n"))
-  out <- list("looks"=n, "lo.bdry"=r1, "hi.bdry"=r0, "bdry.oc"=bdry.oc, "bdry.alpha"=c(alpha1, alpha0))
+  out <- list("looks"=n, "lo.bdry"=r1, "hi.bdry"=r0, "bdry.oc"=bdry.oc, "bdry.alpha"=c(alpha1, alpha0),"delta"=delta)
   class(out) <- "toxbdry"
   out
 }
@@ -65,7 +69,8 @@ print.toxbdry <- function(x, ...) {
     bdry.lo <- paste(x$lo.bdry, n, sep="/")
     bdry.hi <- paste(x$hi.bdry, n, sep="/")
   }
-  cat("\n Toxicity boundary based on repeated significance testing \n\n")
+  cat("\n Toxicity boundary based on repeated significance testing \n")
+  cat("    Boundary shape parameter delta =", x$delta, "\n\n")
   cat(" ******************************************************************\n")
   cat(" * Stop if the number of toxicities exceeds (i.e. >) the boundary *\n")
   cat(" ******************************************************************\n")

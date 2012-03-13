@@ -1,3 +1,10 @@
+03/13/2012:  Version 1.0.0
+
+   o Version number changed to 1.0.0 in preparation for R 2.15.
+   o toxbdry now does the entire Pocock to O'Brien-Fleming range of 
+     boundaries. Added references for the method.
+   o Fixed linebrak in the help for coxphERR.
+
 01/18/2012:  Version 0.9.9
 
    o Added coxphERR to calculate Heller's explained relative risk.

@@ -9,7 +9,7 @@
   toxicity monitoring based repeated significance testing.
 }
 \usage{
-toxbdry(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=5,
+toxbdry(pLo, pHi, n, cP0=0.1, cP1=0.9, ngrid=6, niter=10, delta=0,
           priority=c("null","alt"))
 bdrycross.prob(n, r, ptox)
 \method{print}{toxbdry}(x, \dots)
@@ -30,6 +30,8 @@ bdrycross.prob(n, r, ptox)
   \item{ngrid}{the number of toxicity rates from pLo to pHi for which
     the operating characteristics are computed.}
   \item{niter}{the number of iterations run to obtain the boundary.}
+  \item{delta}{power determining the shape of the boundary. Should be
+    between 0 (default) and 0.5.}
   \item{priority}{the error threshold to prioritize when the max sample 
     size is too small to have both error thresholds satisfied. Default
     is the null i.e. error under pLo.}
@@ -55,9 +57,28 @@ bdrycross.prob(n, r, ptox)
   stopping for toxicity is done when the number of toxicities exceeda
   the boundary i.e. the boundary gives the maximum acceptable number.
 }
+\details{
+  Default value of boundary shape corresponds to the Pocock boundary
+  where the same significance level is used for all looks. For a more
+  conservative stopping rule use delta greater than 0 where 0.5
+  corresponds to the O'Brien-Fleming boundary which is extremely
+  conservative in the early looks. Value between 0.1 and 0.2 is a
+  reasonable compromise.
+
+  The exact calculations in this function are done along the lines of
+  the method in Chapter 12 of Jennison and Turnbull (2000). Ivanova,
+  Qaqish and Schell (2005) have an illustrative paper.
+}
 \examples{
   toxbdry(0.2, 0.35, c(20,40,60,75))
   toxbdry(0.2, 0.3, c(20,40,60,75), cP0=0.15, cP1=0.8)
   toxbdry(0.1, 0.3, 2:30) # continuous monitoring
   toxbdry(0.1, 0.3, 2:25, priority="alt") # prioritize cP1 error threshold
+}
+\references{
+  Jennison C and Turnbull BW. (2000).  Group Sequential Methods with
+  Applications to Clinical Trials.  \emph{Chapman and Hall/CRC}
+
+  Ivanova A, Qaqish BF and Schell MJ. (2005). Continuous Toxicity
+  Monitoring in Phase II Trials in Oncology. \emph{Biometrics} 61, 540-545.
 }
