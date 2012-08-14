@@ -4,8 +4,9 @@ coxphQuantile <- function(phfit, xrange, p=0.5, whichx=1, otherx=NULL, ...)
   cvtmean <- phfit$means
   loghr <- phfit$coef
   S0 <- survfit(phfit)
-  stime <- S0$time
-  ssurv <- S0$surv
+  ii <- S0$surv < 1 & S0$surv > 0
+  stime <- S0$time[ii]
+  ssurv <- S0$surv[ii]
   if (!missing(otherx)) {
     ssurv <- ssurv^(exp(sum(loghr[-whichx]*(otherx-cvtmean[-whichx]))))
   }

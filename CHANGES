@@ -1,9 +1,16 @@
+08/14/2012:  Version 1.0.1
+
+   o Fix integer overflow because of n0*n1 == 0 in roc.curve and 
+     nn*nd == 0 in roc.area.test 
+   o In coxphQuantile eliminate times for which survival probability
+     is 0 or 1 from quantile computation.
+
 03/13/2012:  Version 1.0.0
 
    o Version number changed to 1.0.0 in preparation for R 2.15.
    o toxbdry now does the entire Pocock to O'Brien-Fleming range of 
      boundaries. Added references for the method.
-   o Fixed linebrak in the help for coxphERR.
+   o Fixed linebreak in the help for coxphERR.
 
 01/18/2012:  Version 0.9.9
 

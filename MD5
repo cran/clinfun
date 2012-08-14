@@ -1,11 +1,11 @@
-fc350ce37fb7a0e6abe892d0e53559ec *CHANGES
-90dda52e195efe8c0b876e8d95fb7159 *DESCRIPTION
+e88eef04023bcf81c38824e4cd173448 *CHANGES
+636c3e75bf73693218a117fcbe2ec91a *DESCRIPTION
 610d55fab87a9eb0a094fbafc69ad96e *INDEX
 4fa7f2989c5570b0dd0bc195b82f704f *NAMESPACE
 08f887419ab4c6c1abc9e2110709276b *R/calogrank.R
 c96153c9b26b3ef51df83286aa37c252 *R/coxphCPE.R
 013cf3968ad2e7212b3f0334a7a10542 *R/coxphERR.R
-08b7a096b643ffd22031e5ab807d4836 *R/coxphQuantile.R
+067e305101cb3d6b49b489b78ee5b07f *R/coxphQuantile.R
 6eac76b559da573bec77846f3e50525c *R/fedesign.R
 301efb235ab7c91120f10a6804cf2f29 *R/gsdesign.R
 d2ea3264b81f18d2b6fa906c341399ba *R/jonkheere.R
@@ -15,8 +15,8 @@ d2ea3264b81f18d2b6fa906c341399ba *R/jonkheere.R
 522688c97c3030c8e25a87dde80ec490 *R/ph2simon.R
 63ae0a1faf6438d8ed0591bb876e8535 *R/ph2single.R
 bea757ed5d9af67b2288a219b7773e00 *R/pselect.R
-3ef2c265f4222e9ff2adb2ddcf693438 *R/roc.area.test.R
-79dad37deb29b567196b0cdd91c75852 *R/roc.curve.R
+e29487718a34b1f29b0aed037e999299 *R/roc.area.test.R
+043cf31b82a188a577bd786cc2165a17 *R/roc.curve.R
 660ead9cb7ce176192a72bd83581fef3 *R/roc.perm.test.R
 3140d575a5e1c6661d3c9bd1f0c237e0 *R/toxbdry.R
 0b13f7b822030a64d36b5345a40803de *man/ROCanalysis.Rd
