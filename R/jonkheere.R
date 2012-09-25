@@ -2,6 +2,7 @@
 # asymptotic version is equivalent to cor.test for Kendall's tau
 
 # this function computes the pdf of the statistic for small samples
+# using Hardings generating function algorithm - blows up quickly
 djonckheere <- function(gsize) {
   ng <- length(gsize)
   cgsize <- rev(cumsum(rev(gsize)))
@@ -16,16 +17,31 @@ djonckheere <- function(gsize) {
   zz$jrsum/sum(zz$jrsum)
 }
 
+# this function computes the pdf using the convolution by Mark van de Wiel
+jtpdf <- function(gsize) {
+  ng <- length(gsize)
+  cgsize <- rev(cumsum(rev(gsize)))
+  mxsum <- sum(gsize[-ng]*cgsize[-1]) + 1
+  zz <- .Fortran("jtpdf",
+                 as.integer(mxsum),
+                 pdf=double(mxsum),
+                 as.integer(ng),
+                 as.integer(cgsize),
+                 double(mxsum),
+                 double(mxsum))
+  zz$pdf
+}
+
 # now do the test as in wilcox.test
-jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "decreasing")) {
+jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "decreasing"), nperm=NULL) {
   if(!is.numeric(x)) stop("data values should be numeric")
   if(!is.numeric(g) & !is.ordered(g)) stop("group should be numeric or ordered factor")
   alternative <- match.arg(alternative)
   METHOD <- "Jonckheere-Terpstra test"
+  PERM <- !missing(nperm)
   n <- length(x)
   if(length(g) != n) stop("lengths of data values and group don't match")
   TIES <- length(unique(x)) != n
-  if(TIES) warning("TIES: p-value based on normal approximation")
   gsize <- table(g)
   ng <- length(gsize)
   cgsize <- c(0,cumsum(gsize))
@@ -43,20 +59,25 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
   jtrsum <- 2*jtmean - jtrsum
   STATISTIC <- jtrsum
   names(STATISTIC) <- "JT"
-  if (TIES | (n > 50)) {
-    zstat <- (STATISTIC-jtmean)/sqrt(jtvar)
-    PVAL <- pnorm(zstat)
-    PVAL <- switch(alternative,
-                   "two.sided" = 2*min(PVAL, 1-PVAL),
-                   "increasing" = 1-PVAL,
-                   "decreasing" = PVAL)
+  if (PERM) {
+    PVAL <- jtperm.p(x, ng, gsize, cgsize, alternative, nperm) 
   } else {
-    dPVAL <- sum(djonckheere(gsize)[1:(jtrsum+1)])
-    iPVAL <- 1-sum(djonckheere(gsize)[1:(jtrsum)])
-    PVAL <- switch(alternative,
-                   "two.sided" = 2*min(iPVAL, dPVAL),
-                   "increasing" = iPVAL,
-                   "decreasing" = dPVAL)
+    if (n > 100 | TIES) {
+      warning("Sample size > 100 or data with ties \n p-value based on normal approximation. Specify nperm for permutation p-value")
+      zstat <- (STATISTIC-jtmean)/sqrt(jtvar)
+      PVAL <- pnorm(zstat)
+      PVAL <- switch(alternative,
+                     "two.sided" = 2*min(PVAL, 1-PVAL),
+                     "increasing" = 1-PVAL,
+                     "decreasing" = PVAL)
+    } else {
+      dPVAL <- sum(jtpdf(gsize)[1:(jtrsum+1)])
+      iPVAL <- 1-sum(jtpdf(gsize)[1:(jtrsum)])
+      PVAL <- switch(alternative,
+                     "two.sided" = 2*min(iPVAL, dPVAL),
+                     "increasing" = iPVAL,
+                     "decreasing" = dPVAL)
+    }
   }
   RVAL <- list(statistic = STATISTIC,
                p.value = as.numeric(PVAL),
@@ -64,4 +85,32 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
                method = METHOD)
   class(RVAL) <- "htest"
   RVAL
+}
+
+jtperm.p <- function(x, ng, gsize, cgsize, alternative, nperm) {
+  n <- length(x)
+  pjtrsum <- rep(0, nperm)
+  for (np in 1:nperm){
+    jtrsum <- 0
+    for(i in 1:(ng-1)) {
+      na <- gsize[i]
+      nb <- n-cgsize[i+1]
+# this jtrsum will be small if data are increasing and large if decreasing
+      jtrsum <- jtrsum + sum(rank(x[(cgsize[i]+1):n])[1:na]) - na*(na+1)/2
+    }
+    pjtrsum[np] <- jtrsum
+    # permute the data; this way the first value is the original statistic
+    x <- sample(x)
+  }
+  # one-sided p-values
+  # number of permuted values at least as small as original
+  iPVAL <- sum(pjtrsum <= pjtrsum[1])/nperm
+  # number of permuted values at least as large as original
+  dPVAL <- sum(pjtrsum >= pjtrsum[1])/nperm
+  # return p-value for the alternative of interest
+  PVAL <- switch(alternative,
+                 "two.sided" = 2*min(iPVAL, dPVAL),
+                 "increasing" = iPVAL,
+                 "decreasing" = dPVAL)
+  PVAL
 }

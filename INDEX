@@ -11,9 +11,8 @@ gsdesign                Group Sequential Designs
    gsdesign.binomial       binary outcomes
    gsdesign.normal         normal outcomes
    gsdesign.survival       survival outcomes
-permtests               Permutation versions of some common tests
-   jonckheere.test         Exact version of Jonckheere-Terpstra test
-   permlogrank             Survival comparisons with permutation reference
+jonckheere.test         Exact/permutation version of Jonckheere-Terpstra test
+permlogrank             Survival comparisons with permutation reference
 ph2simon                Simon's 2-stage Phase II design
    oc.twostage.bdry        Two-stage boundary operating characteristics
    twostage.inference      Inference following a two-stage design for response

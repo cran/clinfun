@@ -1,6 +1,6 @@
-e88eef04023bcf81c38824e4cd173448 *CHANGES
-636c3e75bf73693218a117fcbe2ec91a *DESCRIPTION
-610d55fab87a9eb0a094fbafc69ad96e *INDEX
+8e677768ef1479ade4a4d0d23518dfb3 *CHANGES
+0d435eaea563cd57bc6e85617c7b5b35 *DESCRIPTION
+b02d584b5e04b1d1ceb82eb8b0280596 *INDEX
 4fa7f2989c5570b0dd0bc195b82f704f *NAMESPACE
 08f887419ab4c6c1abc9e2110709276b *R/calogrank.R
 c96153c9b26b3ef51df83286aa37c252 *R/coxphCPE.R
@@ -8,7 +8,7 @@ c96153c9b26b3ef51df83286aa37c252 *R/coxphCPE.R
 067e305101cb3d6b49b489b78ee5b07f *R/coxphQuantile.R
 6eac76b559da573bec77846f3e50525c *R/fedesign.R
 301efb235ab7c91120f10a6804cf2f29 *R/gsdesign.R
-d2ea3264b81f18d2b6fa906c341399ba *R/jonkheere.R
+6529ce640c1852fc3607abc308c40f8c *R/jonkheere.R
 836989d8ebe0d55d02120166145a5bf1 *R/ktau.R
 2422c305b08dcb05ed1c09a82ec604af *R/lehmann.R
 73798a1c4f29bcbbdce3c7322f031d59 *R/permlogrank.R
@@ -27,9 +27,10 @@ d81b817a1470ba73422e1452236dd3ad *man/coxphQuantile.Rd
 701412f0caca05493773e478d4f6625e *man/fedesign.Rd
 7c88d27b6904df587f3edc7dfa5471a7 *man/gsdesign-internal.Rd
 d847d99f9f81189898635936590b77f9 *man/gsdesign.Rd
+1d8b16cc6aac0b9d3a9feb4c9f7afdef *man/jonckheere.test.Rd
 787a05fef670e304252785a6972daa0b *man/ktau.Rd
 f9bfdd8771bae4a65f535051d2f8e822 *man/oc.twostage.bdry.Rd
-99a981ea72f95dfc4fc1bd18bf0592f7 *man/permtests.Rd
+666565a48d210a57eede46d1f0e91c2f *man/permlogrank.Rd
 10219edc8070968538707ad36e02a3be *man/ph2simon.Rd
 3ef7cd4ea46376e11ec3da1f21505964 *man/ph2single.Rd
 e6b7ba1e25e6a434930adf949a8b3b50 *man/power.ladesign.Rd
@@ -43,9 +44,11 @@ fbf33f61f14c25aed892250ec29d3ec1 *man/twostage.inference.Rd
 4aee9cdeb018003dcd00d7174e64cebf *src/calogrank.f
 e5c4621e04d1fa846510c5509caa54ae *src/coxphCPE.f
 01a60f4572bd6b755cb3c350e805843c *src/fdnorm.c
+a91c025627e5dd4c2f1fa8ad08c289d4 *src/fdwilcox.c
 a6e130821e5788382ffed7ce1ebedb8d *src/fedesign.f
 258cdcb832b3ebc7f805d5020707eb56 *src/fpnorm.c
 6af67a1f2e9830ba862f0a4e9dd2ea4f *src/jonckheere.f
+2ffebcbeb56e537bffbcb29329c7911c *src/jtpdf.f
 99ca44c2c5cdbd53f4f90151454a0b1b *src/ktau.f
 fbd5cd6b59c3bf1af6bfdd7c2d507974 *src/lehmann.f
 2507b2467b8df1344176caa2a4a4d870 *src/lrtest.f
