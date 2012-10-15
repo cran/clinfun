@@ -39,11 +39,15 @@ pselect(n, p, min.diff=NULL, min.resp=NULL)
     min.diff responses (rate).}
 }
 \examples{
-  pselect(18, c(0.2, 0.2, 0.2)) # selection when no diffrence i.e. type I error
-  pselect(18, c(0.2, 0.2, 0.4)) # selection probability
+  # selection when no diffrence i.e. type I error
+  pselect(18, c(0.2, 0.2, 0.2))
+  # selection probability
+  pselect(18, c(0.2, 0.2, 0.4))
   pselect(26, c(0.2, 0.2, 0.4), min.diff=2, min.resp=3)
-  pselect(c(27,54), c(0.5, 0.65), min.diff=0.05) # unequal sample size case
-  pselect(c(27,54), c(0.5, 0.65), min.diff=0.05, min.resp=c(14,27)) # unequal sample size case
+  # unequal sample size case
+  pselect(c(27,54), c(0.5, 0.65), min.diff=0.05)
+  # unequal sample size case
+  pselect(c(27,54), c(0.5, 0.65), min.diff=0.05, min.resp=c(14,27))
 }
 \references{
   Simon R, Wittes RE, Ellenberg SS. (1985). Randomized phase II clinical

@@ -1,3 +1,8 @@
+10/15/2012:  Version 1.0.3
+
+   o Fixed two-sided p-value > 1 bug when statistic is exactly its mean.
+   o Fixed Rd file to address LaTeX warnings.
+
 09/25/2012:  Version 1.0.2
 
    o integer overflow in djonck for the Jonckheere-Terpstra statistic. 

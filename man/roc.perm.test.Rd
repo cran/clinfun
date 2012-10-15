@@ -9,7 +9,8 @@
   comparing paired or unpaired ROC curves.
 }
 \usage{
-roc.perm.test(marker, status, marker2=NULL, group=NULL, nperm=2500, mp=NULL)
+roc.perm.test(marker, status, marker2=NULL, group=NULL,
+              nperm=2500, mp=NULL)
 \method{print}{roc.perm.test}(x, \dots)
 \method{plot}{roc.perm.test}(x, \dots)
 }

@@ -10,14 +10,14 @@
 }
 \usage{
 gsdesign.binomial(ifrac, pC, pE, sig.level = 0.05, power = 0.8,
-  delta.eb=0.5, delta.fb = NULL, alternative = c("two.sided", "one.sided"),
-  tol=0.00001, ...) 
-gsdesign.normal(ifrac, delta, sd = 1, sig.level = 0.05, power = 0.8,
-  delta.eb = 0.5, delta.fb = NULL, alternative = c("two.sided", "one.sided"),
-  tol=0.00001, ...)
-gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, power = 0.8,
-  delta.eb = 0.5, delta.fb = NULL, alternative = c("two.sided", "one.sided"),
-  tol=0.00001, ...)
+  delta.eb=0.5, delta.fb = NULL, alternative = c("two.sided",
+  "one.sided"), tol=0.00001, ...) 
+gsdesign.normal(ifrac, delta, sd = 1, sig.level = 0.05,
+  power = 0.8, delta.eb = 0.5, delta.fb = NULL, alternative = 
+  c("two.sided", "one.sided"), tol=0.00001, ...)
+gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, 
+  power = 0.8, delta.eb = 0.5, delta.fb = NULL, alternative = 
+  c("two.sided", "one.sided"), tol=0.00001, ...)
 }
 \arguments{
   \item{ifrac}{information fraction or the ratio of current sample size
@@ -31,11 +31,11 @@ gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05, power = 0.8,
   \item{haz.ratio}{hazard ratio (for survival comparison)}
   \item{sig.level}{significance level (type I error probability)}
   \item{power}{power of test (1 minus type II error probability)}
-  \item{delta.eb}{power for efficacy boundary in the Pocock (power=0) to
-    O'Brien-Fleming (power=0.5) family (default is 0.5)}
-  \item{delta.fb}{power for futility boundary in the Pocock (power=0) to
-    O'Brien-Fleming (power=0.5) family (default is NULL i.e. no futility
-    boundary is requested.)}
+  \item{delta.eb}{power for efficacy boundary in the Pocock (=0) to
+    O'Brien-Fleming (=0.5) family (default is 0.5) }
+  \item{delta.fb}{power for futility boundary in the Pocock (=0) to
+    O'Brien-Fleming (=0.5) family (default is NULL i.e. no futility
+    boundary is requested.) }
   \item{alternative}{one- or two-sided test.}
   \item{tol}{tolerance level for multivariate normal probability
     computation.}

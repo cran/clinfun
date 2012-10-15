@@ -67,14 +67,14 @@ jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "de
       zstat <- (STATISTIC-jtmean)/sqrt(jtvar)
       PVAL <- pnorm(zstat)
       PVAL <- switch(alternative,
-                     "two.sided" = 2*min(PVAL, 1-PVAL),
+                     "two.sided" = 2*min(PVAL, 1-PVAL, 1),
                      "increasing" = 1-PVAL,
                      "decreasing" = PVAL)
     } else {
       dPVAL <- sum(jtpdf(gsize)[1:(jtrsum+1)])
       iPVAL <- 1-sum(jtpdf(gsize)[1:(jtrsum)])
       PVAL <- switch(alternative,
-                     "two.sided" = 2*min(iPVAL, dPVAL),
+                     "two.sided" = 2*min(iPVAL, dPVAL, 1),
                      "increasing" = iPVAL,
                      "decreasing" = dPVAL)
     }
@@ -109,7 +109,7 @@ jtperm.p <- function(x, ng, gsize, cgsize, alternative, nperm) {
   dPVAL <- sum(pjtrsum >= pjtrsum[1])/nperm
   # return p-value for the alternative of interest
   PVAL <- switch(alternative,
-                 "two.sided" = 2*min(iPVAL, dPVAL),
+                 "two.sided" = 2*min(iPVAL, dPVAL, 1),
                  "increasing" = iPVAL,
                  "decreasing" = dPVAL)
   PVAL

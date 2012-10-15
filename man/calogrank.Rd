@@ -26,7 +26,8 @@
   pbc1$trt[pbc1$trt == -9] <- NA
   pbc1$copper[pbc1$copper == -9] <- NA
   calogrank(pbc1$time, pbc1$status, pbc1$trt, pbc1[,c("copper")])
-  calogrank(pbc1$time, pbc1$status, pbc1$trt, pbc1[,c("protime", "copper")])}
+  calogrank(pbc1$time, pbc1$status, pbc1$trt,
+                                  pbc1[,c("protime", "copper")])}
 }
 \references{
   Heller G. and Venkatraman E.S. (2004) A nonparametric test to compare
