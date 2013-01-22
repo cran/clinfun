@@ -11,7 +11,7 @@
 \usage{
 gsdesign.binomial(ifrac, pC, pE, sig.level = 0.05, power = 0.8,
   delta.eb=0.5, delta.fb = NULL, alternative = c("two.sided",
-  "one.sided"), tol=0.00001, ...) 
+  "one.sided"), pooled.variance = FALSE, CPS = TRUE, tol=0.00001, ...) 
 gsdesign.normal(ifrac, delta, sd = 1, sig.level = 0.05,
   power = 0.8, delta.eb = 0.5, delta.fb = NULL, alternative = 
   c("two.sided", "one.sided"), tol=0.00001, ...)
@@ -37,6 +37,11 @@ gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05,
     O'Brien-Fleming (=0.5) family (default is NULL i.e. no futility
     boundary is requested.) }
   \item{alternative}{one- or two-sided test.}
+  \item{pooled.variance}{whether the test statistic is standardized by
+    pooled (2*pbar*(1-pbar)) or unpooled variance (pC*(1-pC) + pE*(1-pE)).
+    Default is unpooled variance.}
+  \item{CPS}{whether continuity correction is used for sample size
+    calculation as in Casagrande, Pike & Smith. Default is to use it.}
   \item{tol}{tolerance level for multivariate normal probability
     computation.}
   \item{...}{additional options passed on the pmvnorm function.}
@@ -55,5 +60,9 @@ gsdesign.survival(ifrac, haz.ratio, sig.level = 0.05,
   non-binding.  That is the significance level is not adjusted to account
   for early stopping for utility.  This makes the test a bit conservative
   in that the true size is less than the nominal level.
+
+  The Casagrande-Pike-Smith type continuity correction is obtained using
+  the formula n*{1 + sqrt{1+4/{abs(pC-pE)*n}}}^2 where n is the
+  uncorrected sample size.
 }
 \keyword{design}

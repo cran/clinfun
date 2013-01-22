@@ -21,7 +21,7 @@
 }
 \examples{
   set.seed(1234)
-  x <- rnorm(20000); y <- x+rnorm(20000)
+  x <- rnorm(10000); y <- x+rnorm(10000)
   cor(x, y, method="k")
   clinfun:::ktau(x,y)  
 }

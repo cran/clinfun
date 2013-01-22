@@ -225,17 +225,28 @@ gsd.drift <- function(ifrac, sig.level = 0.05, pow = 0.8, delta.eb = 0.5, delta.
 }
 
 # drift parameter theta
-# binomial: n (per arm) = theta^2 * 2*pbar*(1-pbar)/(pC -pE)^2
+# binomial: n (per arm) = theta^2 * 2*pbar*(1-pbar)/(pC -pE)^2  (pooled)
+#                  theta^2 * (pC*(1-pC)+pE*(1-pE))/(pC -pE)^2 (unpooled)
+#                  CPS correction inflates this number
 # normal:   n (per arm) = theta^2 * 2*sigma^2/(muC-muE)^2
 # survival: d (total) = theta^2 * 4/(log(haz-ratio))^2
 #           Convert number of events d to sample size n
 
 gsdesign.binomial <- function(ifrac, pC, pE, sig.level=0.05, power=0.8,
                               delta.eb = 0.5, delta.fb = NULL, alternative =
-                              c("two.sided", "one.sided"), tol=0.00001, ...) {
+                              c("two.sided", "one.sided"), pooled.variance =
+                              FALSE, CPS = TRUE, tol = 0.00001, ...) {
   drift.out <- gsd.drift(ifrac, sig.level, power, delta.eb, delta.fb, alternative, tol)
-  pbar <- (pC+pE)/2
-  n <- 2*pbar*(1-pbar)*(drift.out$drift/(pC-pE))^2
+  if (pooled.variance) {
+    pbar <- (pC + pE)/2
+    n <- 2 * pbar * (1 - pbar) * (drift.out$drift/(pC - pE))^2
+  } else {
+    n <- (pC * (1 - pC) + pE * (1 - pE)) * (drift.out$drift/(pC - pE))^2
+  }
+  if (CPS) {
+    A <- n * (pC-pE)^2
+    n <- n * {{1+sqrt(1+4*abs(pC-pE)/A)}/2}^2
+  }
   out <- drift.out
   out$drift <- NULL
   out$pC <- pC

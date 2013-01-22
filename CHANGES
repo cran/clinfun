@@ -1,3 +1,8 @@
+01/22/2013:  Version 1.0.4
+
+   o Added the option to calculate continuity corrected sample size in 
+     the function gsdesign.binomial.
+
 10/15/2012:  Version 1.0.3
 
    o Fixed two-sided p-value > 1 bug when statistic is exactly its mean.
