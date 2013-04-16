@@ -47,7 +47,7 @@ c     call the subroutine to compute the #concordant - #discordant
 c     the call above returns y in sorted order, now adjust for ties in y
       dny = 0
       ties = 1.0d0
-      do 20 i = 1, n
+      do 20 i = 1, n-1
          if (y(i) .eq. y(i+1)) then
             ties = ties + 1.0d0
          else

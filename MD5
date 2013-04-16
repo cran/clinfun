@@ -1,5 +1,5 @@
-5bb96c7a7f488cfc94d3078c720f0644 *CHANGES
-5be8d475870677176a7bc4f0c9500477 *DESCRIPTION
+9a09d932ab5eb4576707a0af96441d47 *CHANGES
+cd9a89c498859807bbb94b47aa58e127 *DESCRIPTION
 b02d584b5e04b1d1ceb82eb8b0280596 *INDEX
 4fa7f2989c5570b0dd0bc195b82f704f *NAMESPACE
 08f887419ab4c6c1abc9e2110709276b *R/calogrank.R
@@ -49,7 +49,7 @@ a6e130821e5788382ffed7ce1ebedb8d *src/fedesign.f
 258cdcb832b3ebc7f805d5020707eb56 *src/fpnorm.c
 6af67a1f2e9830ba862f0a4e9dd2ea4f *src/jonckheere.f
 2ffebcbeb56e537bffbcb29329c7911c *src/jtpdf.f
-99ca44c2c5cdbd53f4f90151454a0b1b *src/ktau.f
+c304c7dee1e72fb3595f2c921a0eb566 *src/ktau.f
 fbd5cd6b59c3bf1af6bfdd7c2d507974 *src/lehmann.f
 2507b2467b8df1344176caa2a4a4d870 *src/lrtest.f
 6ca2ff0dbf7d49c10519c556ae3de5ea *src/ph2simon.f
