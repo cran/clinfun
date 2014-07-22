@@ -1,3 +1,9 @@
+06/10/2014:  Version 1.0.6
+
+   o On rare occasions jonckheere.test gave a p-value bigger than 1.
+     Sometimes 2*min(iPVAL, dPVAL, 1) can be larger than 1. Replace with 
+     2*min(iPVAL, dPVAL, 0.5) (Thanks to Drs. Shterev and Owzar of Duke).
+
 04/16/2013:  Version 1.0.5
 
    o Fixed the bound checks 

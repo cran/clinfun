@@ -1,5 +1,5 @@
-9a09d932ab5eb4576707a0af96441d47 *CHANGES
-cd9a89c498859807bbb94b47aa58e127 *DESCRIPTION
+ac894271660af5e5237549fe4b4aa25c *CHANGES
+0df3aff22ae18765ad7fd531a3e91a73 *DESCRIPTION
 b02d584b5e04b1d1ceb82eb8b0280596 *INDEX
 4fa7f2989c5570b0dd0bc195b82f704f *NAMESPACE
 08f887419ab4c6c1abc9e2110709276b *R/calogrank.R
@@ -8,7 +8,7 @@ c96153c9b26b3ef51df83286aa37c252 *R/coxphCPE.R
 067e305101cb3d6b49b489b78ee5b07f *R/coxphQuantile.R
 6eac76b559da573bec77846f3e50525c *R/fedesign.R
 3b4f345254c4b4393121afe4eebc432b *R/gsdesign.R
-1de99f7a46eab212f59ae352b3fa61b1 *R/jonkheere.R
+a1497cc3821c02f6f9f400084e1025d3 *R/jonkheere.R
 836989d8ebe0d55d02120166145a5bf1 *R/ktau.R
 2422c305b08dcb05ed1c09a82ec604af *R/lehmann.R
 73798a1c4f29bcbbdce3c7322f031d59 *R/permlogrank.R
@@ -25,7 +25,7 @@ e29487718a34b1f29b0aed037e999299 *R/roc.area.test.R
 e162b552a86a578f664a67217abb8622 *man/coxphERR.Rd
 b5b448185aacf21bdf95926c51098282 *man/coxphQuantile.Rd
 701412f0caca05493773e478d4f6625e *man/fedesign.Rd
-7c88d27b6904df587f3edc7dfa5471a7 *man/gsdesign-internal.Rd
+daa3953f6ec170a1fb1b03c6c6d45ecb *man/gsdesign-internal.Rd
 00bcb7d851f0c3e0a3820d09e1b97a69 *man/gsdesign.Rd
 1d8b16cc6aac0b9d3a9feb4c9f7afdef *man/jonckheere.test.Rd
 c7c2570b521aa1ac70ed2ae5a0eb6a3f *man/ktau.Rd
