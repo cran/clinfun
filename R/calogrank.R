@@ -1,4 +1,5 @@
 calogrank <- function(ftime, fstatus, grp, cvt, strat=NULL) {
+  requireNamespace("survival")
   call <- match.call()
   n0 <- length(ftime)
   cvt <- cbind(cvt)
@@ -22,7 +23,7 @@ calogrank <- function(ftime, fstatus, grp, cvt, strat=NULL) {
 
   bb <- apply(cvt, 2, sd)/n0^0.26  
 
-  rval <- survdiff(Surv(ftime, fstatus) ~ grp + strata(strat))
+  rval <- survival::survdiff(Surv(ftime, fstatus) ~ grp + strata(strat))
   rval$call <- call
 
   ord <- order(strat, ftime, -fstatus)

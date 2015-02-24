@@ -4,15 +4,17 @@
 \alias{fe.ssize}
 \alias{CPS.ssize}
 \alias{fe.mdor}
+\alias{mdrr}
 \alias{fe.power}
 \alias{or2pcase}
 \keyword{design}
 \description{Calculates sample size, effect size and power based on
   Fisher's exact test}
 \usage{
-fe.ssize(p1,p2,alpha=0.05,power=0.8,r=1,npm=5,mmax=1000)
-CPS.ssize(p1,p2,alpha=0.05,power=0.8,r=1)
-fe.mdor(ncase,ncontrol,pcontrol,alpha=0.05,power=0.8)
+fe.ssize(p1, p2, alpha=0.05, power=0.8, r=1, npm=5, mmax=1000)
+CPS.ssize(p1, p2, alpha=0.05, power=0.8, r=1)
+fe.mdor(ncase, ncontrol, pcontrol, alpha=0.05, power=0.8)
+mdrr(n, cprob, presp, alpha=0.05, power=0.8, niter=15)
 fe.power(d, n1, n2, p1, alpha = 0.05)
 or2pcase(pcontrol, OR)
 }
@@ -32,6 +34,10 @@ or2pcase(pcontrol, OR)
     range (+/- npm) to get the exact power}
   \item{mmax}{the maximum group size for which exact power is
     calculated}
+  \item{n}{total number of subjects}
+  \item{cprob}{proportion of patients who are marger positive}
+  \item{presp}{probability of response in all subjects}
+  \item{niter}{number of iterations in binary search}
   \item{OR}{odds-ratio}
 }
 \details{
@@ -46,6 +52,10 @@ fe.mdor return a 3x2 matrix with Schlesselman, CPS and Fisher's exact
 minimum detectable odds ratios and the corresponding power.
 
 fe.power returns a Kx2 matrix with probabilities (p2) and exact power.
+
+mdrr computes the minimum detectable P(resp|marker+) and P(resp|marker-)
+configurations when total sample size (n), P(response) (presp) and
+proportion of subjects who are marker positive (cprob) are specified.
 
 or2pcase give the probability of disease among the cases for a given
 probability of disease in controls (pcontrol) and odds-ratio (OR).

@@ -1,3 +1,16 @@
+02/24/2015:  Version 1.0.9
+
+   o use requireNamespace to remove NOTES on functions using survival pkg
+
+02/19/2015:  Version 1.0.8
+
+   o fix name swap in the result of mdrr in v1.0.7
+
+02/19/2015:  Version 1.0.7
+
+   o new function mdrr added to calculate minimum detectable difference in 
+     response rates for given average response rate and class proportion
+
 06/10/2014:  Version 1.0.6
 
    o On rare occasions jonckheere.test gave a p-value bigger than 1.

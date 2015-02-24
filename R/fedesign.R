@@ -144,3 +144,77 @@ orCPS <- function(ncase,ncontrol,pcontrol,alpha=0.05,power=0.8) {
 }
 
 or2pcase <- function(pcontrol, OR) {OR*pcontrol/(1 + (OR -1)*pcontrol)}
+
+# mdrr function added 2/18/2015
+# estimate the minimum detectable response rate difference
+# total sample size and marginal proportions are specified
+# presp is one of the margins for example overall response rate of drug
+# cprob is the other margin, say probability of a genetic aberration
+# goal is to test if aberration is associated with response
+mdrr <- function(n, cprob, presp, alpha=0.05, power=0.8, niter=15) {
+    ncontrol <- round(n*cprob)
+    ncase <- n-ncontrol
+    out <- matrix(0,2,3)
+    # overall rate presp = cprob*pcontrol + (1-cprob)*pcase
+    # for numerical purposes lowest pcontrol is 1e-6 and highest pcase is 1-1e-6
+    # pcontrol has to be as large as (presp - (1-cprob))/cprob
+    pcontrol0 <- max(0.000001, (presp - 0.999999*(1-cprob))/cprob)
+    pcase0 <- (presp - cprob*pcontrol0)/(1-cprob)
+    pcontrol1 <- pcase1 <- presp
+    opower0 <- fe.power(pcase0-pcontrol0, ncontrol, ncase, pcontrol0, alpha)$power
+    opower1 <- fe.power(pcase1-pcontrol1, ncontrol, ncase, pcontrol1, alpha)$power
+    if (opower0 > power) {
+        # power at mid-points
+        for(i in 1:niter) {
+            pcontrol <- (pcontrol0+pcontrol1)/2
+            pcase <- (presp - cprob*pcontrol)/(1-cprob)
+            opower <- fe.power(pcase-pcontrol, ncontrol, ncase, pcontrol, alpha)$power
+            if (opower < power) {
+                pcontrol1 <- pcontrol
+                pcase1 <- pcase
+                opower1 <- opower
+            } else {
+                pcontrol0 <- pcontrol
+                pcase0 <- pcase
+                opower0 <- opower
+            }
+        }
+    } else {
+        pcontrol <- pcontrol0
+        pcase <- pcase0
+        opower <- opower0        
+        warning("required power cannot be achieved")
+    }
+    out[1,] <- c(pcontrol, pcase, opower) # pclass > presp
+    # repeat now to get pclass < presp
+    pcontrol0 <- min(0.999999, (presp - 0.000001*(1-cprob))/cprob)
+    pcase0 <- (presp - cprob*pcontrol0)/(1-cprob)
+    pcontrol1 <- pcase1 <- presp
+    opower0 <- fe.power(pcase0-pcontrol0, ncontrol, ncase, pcontrol0, alpha)$power
+    opower1 <- fe.power(pcase1-pcontrol1, ncontrol, ncase, pcontrol1, alpha)$power
+    if (opower0 > power) {
+        # power at mid-points
+        for(i in 1:niter) {
+            pcontrol <- (pcontrol0+pcontrol1)/2
+            pcase <- (presp - cprob*pcontrol)/(1-cprob)
+            opower <- fe.power(pcase-pcontrol, ncontrol, ncase, pcontrol, alpha)$power
+            if (opower < power) {
+                pcontrol1 <- pcontrol
+                pcase1 <- pcase
+                opower1 <- opower
+            } else {
+                pcontrol0 <- pcontrol
+                pcase0 <- pcase
+                opower0 <- opower
+            }
+        }
+    } else {
+        pcontrol <- pcontrol0
+        pcase <- pcase0
+        opower <- opower0        
+        warning("required power cannot be achieved")
+    }
+    out[2,] <- c(pcontrol, pcase, opower)
+    colnames(out) <- c("P(resp|+)","P(resp|-)", "power")
+    out
+}

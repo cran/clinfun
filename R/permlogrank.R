@@ -4,6 +4,7 @@
 # adapted from the original survdiff.s
 
 permlogrank <- function(formula, data, subset, na.action, rho=0, nperm=5000) {
+  requireNamespace("survival")
   call <- match.call()
   m <- match.call(expand.dots=FALSE)
   m$nperm <- NULL
@@ -33,10 +34,10 @@ permlogrank <- function(formula, data, subset, na.action, rho=0, nperm=5000) {
   else { #k sample test
     strats <- attr(Terms, "specials")$strata
     if (length(strats)) {
-      temp <- untangle.specials(Terms, 'strata', 1)
+      temp <- survival::untangle.specials(Terms, 'strata', 1)
       dropx <- temp$terms
       if (length(temp$vars)==1) strata.keep <- m[[temp$vars]]
-      else strata.keep <- strata(m[,temp$vars], shortlabel=TRUE)
+      else strata.keep <- survival::strata(m[,temp$vars], shortlabel=TRUE)
     }
     else strata.keep <- rep(1,nrow(m))
 
@@ -44,7 +45,7 @@ permlogrank <- function(formula, data, subset, na.action, rho=0, nperm=5000) {
     if (length(strats)) ll <- attr(Terms[-dropx], 'term.labels')
     else                ll <- attr(Terms, 'term.labels')
     if (length(ll) == 0) stop("No groups to test")
-    else groups <- strata(m[ll])
+    else groups <- survival::strata(m[ll])
 
     # re-order data
     igroup <- as.numeric(groups)
@@ -62,7 +63,7 @@ permlogrank <- function(formula, data, subset, na.action, rho=0, nperm=5000) {
     strat2 <- c(1*(diff(strat)!=0), 1)
     nstrat2 <- c(0,which(strat2==1))
 
-    osurv <- survfit(y ~ strata.keep)
+    osurv <- survival::survfit(y ~ strata.keep)
     n <- osurv$n
     ntime <- length(osurv$time)
     tdeath <- osurv$n.event
