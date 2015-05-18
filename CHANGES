@@ -1,3 +1,7 @@
+05/18/2015:  Version 1.0.10
+
+   o bug fix for pselect; nlen > 3 should have been nlen > 2
+
 02/24/2015:  Version 1.0.9
 
    o use requireNamespace to remove NOTES on functions using survival pkg

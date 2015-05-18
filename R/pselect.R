@@ -5,7 +5,7 @@ pselect <- function(n, p, min.diff=NULL, min.resp=NULL) {
   if (min(p) < 0 | max(p) > 1) stop("p should be a vector of probabilities i.e. between 0 and 1")
 # unequal sample size is allowed for comparing two treatments only
   nlen <- length(n)
-  if (nlen > 3) stop("sample size should be a vector of size 1 or 2")
+  if (nlen > 2) stop("sample size should be a vector of size 1 or 2")
   if (nlen==2 & n[1] == n[2]) {
     n <- n[1]
     nlen <- 1

@@ -1,5 +1,5 @@
-5043ed9a5880bbf5a5ab69ec89c02788 *CHANGES
-32f8aca86b35d280a0d6e6cebeef7ae1 *DESCRIPTION
+c8bc7198ecafdfd1c8ca6b117ded0818 *CHANGES
+4987fa447c7d823be3bb6562ceedbf9f *DESCRIPTION
 9fe72d494d5aa3b8d2d5602efad97db3 *INDEX
 a2d44648d517b0994ba92f73651d2f03 *NAMESPACE
 ca0fd8a3e558997fc688f22e34484dcb *R/calogrank.R
@@ -14,7 +14,7 @@ a1497cc3821c02f6f9f400084e1025d3 *R/jonkheere.R
 02c13e0eccfb8fb9bf32c5cf11fac16d *R/permlogrank.R
 522688c97c3030c8e25a87dde80ec490 *R/ph2simon.R
 63ae0a1faf6438d8ed0591bb876e8535 *R/ph2single.R
-bea757ed5d9af67b2288a219b7773e00 *R/pselect.R
+5380f6850c9ceea21fa9d7e439695d02 *R/pselect.R
 e29487718a34b1f29b0aed037e999299 *R/roc.area.test.R
 043cf31b82a188a577bd786cc2165a17 *R/roc.curve.R
 660ead9cb7ce176192a72bd83581fef3 *R/roc.perm.test.R
