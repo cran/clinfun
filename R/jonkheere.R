@@ -36,14 +36,20 @@ jtpdf <- function(gsize) {
 jonckheere.test <- function(x, g, alternative = c("two.sided", "increasing", "decreasing"), nperm=NULL) {
   if(!is.numeric(x)) stop("data values should be numeric")
   if(!is.numeric(g) & !is.ordered(g)) stop("group should be numeric or ordered factor")
+  if (length(g) != length(x)) stop("lengths of data values and group don't match")
   alternative <- match.arg(alternative)
   METHOD <- "Jonckheere-Terpstra test"
   PERM <- !missing(nperm)
+  # keep only the finite values
+  ii <- is.finite(x) & is.finite(g)
+  x <- x[ii]
+  g <- g[ii]
   n <- length(x)
-  if(length(g) != n) stop("lengths of data values and group don't match")
+  if (n == 0) stop("either x (data) or g (group) missing for all observations")
   TIES <- length(unique(x)) != n
   gsize <- table(g)
   ng <- length(gsize)
+  if (ng <= 1) stop("only one group has non-missing data")
   cgsize <- c(0,cumsum(gsize))
   x <- x[order(g)]
   jtrsum <- jtmean <- jtvar <- 0

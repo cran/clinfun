@@ -1,5 +1,5 @@
-c8bc7198ecafdfd1c8ca6b117ded0818 *CHANGES
-4987fa447c7d823be3bb6562ceedbf9f *DESCRIPTION
+c17189cdf6c06d75923462d6f252410f *CHANGES
+1902aad8eb35cb64f312b3fed60a3ecb *DESCRIPTION
 9fe72d494d5aa3b8d2d5602efad97db3 *INDEX
 a2d44648d517b0994ba92f73651d2f03 *NAMESPACE
 ca0fd8a3e558997fc688f22e34484dcb *R/calogrank.R
@@ -8,7 +8,7 @@ c96153c9b26b3ef51df83286aa37c252 *R/coxphCPE.R
 e7cd865c6b39ceb30f7b4acd692f918e *R/coxphQuantile.R
 74ff7d56833fdb4bdb0726dac76e0984 *R/fedesign.R
 3b4f345254c4b4393121afe4eebc432b *R/gsdesign.R
-a1497cc3821c02f6f9f400084e1025d3 *R/jonkheere.R
+46f9aae8a76aa92dec2cc0aaf0668565 *R/jonkheere.R
 836989d8ebe0d55d02120166145a5bf1 *R/ktau.R
 2422c305b08dcb05ed1c09a82ec604af *R/lehmann.R
 02c13e0eccfb8fb9bf32c5cf11fac16d *R/permlogrank.R
