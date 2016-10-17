@@ -34,3 +34,4 @@
   survival distributions with covariate adjustment. \emph{JRSS-B} 66,
   719-733.
 }
+\keyword{htest}

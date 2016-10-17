@@ -2,6 +2,7 @@
 ||        The chores may not be fun but these utilities may help          ||
 \\++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+aucVardiTest            Two-Sample tests for growth curves
 calogrank               Covariate adjusted logrank test
 coxphCPE                Gonen & Heller Concordance Probability Estimate
 coxphERR                Heller Explained Relative Risk
