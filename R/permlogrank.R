@@ -64,12 +64,12 @@ permlogrank <- function(formula, data, subset, na.action, rho=0, nperm=5000) {
     nstrat2 <- c(0,which(strat2==1))
 
     osurv <- survival::survfit(y ~ strata.keep)
-    n <- osurv$n
+    n <- sum(osurv$n)
     ntime <- length(osurv$time)
     tdeath <- osurv$n.event
     weights <- tfreq <- rep(0, ntime)
     if(nstrat > 1) {
-      sfreq <- osurv$ntimes.strata
+      sfreq <- osurv$strata
     } else {
       sfreq <- ntime
     }

@@ -1,5 +1,5 @@
-a2e8d68b271ed8a2bf62a84eb341e2d8 *CHANGES
-bdeb7ebe286bffaf17078a0138091d89 *DESCRIPTION
+6cd79410a2abeb65c3154d233cf2c9ff *CHANGES
+d581e8f9c2c4fdd7880f33be19bdc0f3 *DESCRIPTION
 7d4bf0374db963fdbfc9128567261856 *INDEX
 d9920c1ae7d2c0de5b4b8e975d5df599 *NAMESPACE
 9e776f0de55708e18a4a5b4971897919 *R/aucVardiTest.R
@@ -12,7 +12,7 @@ e7cd865c6b39ceb30f7b4acd692f918e *R/coxphQuantile.R
 46f9aae8a76aa92dec2cc0aaf0668565 *R/jonkheere.R
 836989d8ebe0d55d02120166145a5bf1 *R/ktau.R
 2422c305b08dcb05ed1c09a82ec604af *R/lehmann.R
-02c13e0eccfb8fb9bf32c5cf11fac16d *R/permlogrank.R
+8cfcd391a0ad575ef367af5caf43ffb1 *R/permlogrank.R
 522688c97c3030c8e25a87dde80ec490 *R/ph2simon.R
 63ae0a1faf6438d8ed0591bb876e8535 *R/ph2single.R
 5380f6850c9ceea21fa9d7e439695d02 *R/pselect.R
