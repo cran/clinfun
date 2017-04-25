@@ -1,5 +1,5 @@
-6cd79410a2abeb65c3154d233cf2c9ff *CHANGES
-d581e8f9c2c4fdd7880f33be19bdc0f3 *DESCRIPTION
+010d178919513267e1db6964e8808b72 *CHANGES
+9ef824736f1995d2145412d7c3864c3a *DESCRIPTION
 7d4bf0374db963fdbfc9128567261856 *INDEX
 d9920c1ae7d2c0de5b4b8e975d5df599 *NAMESPACE
 9e776f0de55708e18a4a5b4971897919 *R/aucVardiTest.R
@@ -49,6 +49,7 @@ e5c4621e04d1fa846510c5509caa54ae *src/coxphCPE.f
 a91c025627e5dd4c2f1fa8ad08c289d4 *src/fdwilcox.c
 a6e130821e5788382ffed7ce1ebedb8d *src/fedesign.f
 258cdcb832b3ebc7f805d5020707eb56 *src/fpnorm.c
+cad19880cbc0bbde44fd84abd256e216 *src/init.c
 6af67a1f2e9830ba862f0a4e9dd2ea4f *src/jonckheere.f
 2ffebcbeb56e537bffbcb29329c7911c *src/jtpdf.f
 c304c7dee1e72fb3595f2c921a0eb566 *src/ktau.f
