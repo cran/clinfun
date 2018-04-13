@@ -45,6 +45,9 @@ CPS.ssize returns Casagrande, Pike, Smith sample size which is a very
 close to the exact.  Use this for small differences p2-p1 (hence large
 sample sizes) to get the result instantaneously.
 
+Since Fisher's exact test orders the tables by their probability the
+test is naturally two-sided.
+
 fe.ssize return a 2x3 matrix with CPS and Fisher's exact sample sizes
 with power.
 

@@ -1,3 +1,10 @@
+04/13/2018:  Version 1.0.15
+
+   o Added new function deltaAUC to test for difference in the area under
+     the ROC curves from nested binary regression models.
+   o power.ladesign does exact null if number of combinations is small
+   o Added to help of fedesign, ph2simon and ph2single functions
+
 04/25/2017:  Version 1.0.14
 
    o added init.c to register native routines

@@ -32,6 +32,9 @@ ph2simon(pu, pa, ep1, ep2, nmax=100)
   \item{out}{matrix of best 2 stage designs for each value of total
     sample size n.  the 6 columns are: r1, n1, r, n, EN(p0), PET(p0)}
 
+  Trial is stopped early if <= r1 responses are seen in the first stage
+  and treatment is considered desirable only when >r responses seen.
+
   The "print" method formats and returns the minimax and optimal
   designs.  The "plot" plots the expected sample size agains the maximum
   sample size as in Jung et al., 2001
