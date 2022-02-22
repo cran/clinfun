@@ -1,10 +1,14 @@
 Package: clinfun
 Title: Clinical Trial Design and Data Analysis Functions
-Version: 1.0.15
+Version: 1.1.0
 Depends: R (>= 2.0.0), graphics, stats
 Imports: mvtnorm
 Suggests: survival
-Author: Venkatraman E. Seshan
+Author: Venkatraman E. Seshan [aut, cre],
+  Karissa Whiting [aut]
+Authors@R: 
+    c(person(given = "Venkatraman E.", family = "Seshan", role = c("aut", "cre"), email = "seshanv@mskcc.org"),
+      person(given = "Karissa", family = "Whiting", role = "aut"))
 Description: Utilities to make your clinical collaborations easier if not
           fun. It contains functions for designing studies such as Simon
           2-stage and group sequential designs and for data analysis such
@@ -12,6 +16,6 @@ Description: Utilities to make your clinical collaborations easier if not
 Maintainer: Venkatraman E. Seshan <seshanv@mskcc.org>
 License: GPL (>= 2)
 NeedsCompilation: yes
-Packaged: 2018-04-13 13:50:35 UTC; seshanv
+Packaged: 2022-02-23 00:23:23 UTC; seshanv
 Repository: CRAN
-Date/Publication: 2018-04-13 14:48:39 UTC
+Date/Publication: 2022-02-23 00:50:02 UTC
