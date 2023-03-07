@@ -1,15 +1,26 @@
+# clinfun 1.1.1 (03/06/2023)
+
+* changed class check to use inherits instead of comparing strings
+
+### New Functionality
+
+* Added out.ties option to coxphCPE for discrete risk score case
+
 # clinfun 1.1.0 (02/22/2022)
+
+### New Functionality
 
 * Added added admissible two stage design function
 * Added added futilbdry function for sequential futility stopping
+* added 1:r sample allocation in gsdesign functions
+* Fixed the warnings messages from deltaAUC.f
 
-# clinfun (development version)
+### New Documentation
 
 * Added a `NEWS.md` file to track changes to the package.
 * deposited development version on GitHub
-* created {pkgdown} website
-* added 1:r sample allocation in gsdesign functions
-* Fixed the warnings messages from deltaAUC.f
+* created {pkgdown} website and github actions for building site
+
 
 # clinfun 1.0.15 (04/13/2018)
 
