@@ -1,3 +1,13 @@
+# clinfun 1.1.2 (06/19/2023)
+
+* changed all dfloat in fortran to dble
+* print method for ph2simon now lists admissible designs
+
+### New Functionality
+
+* plot and lines method for roc.curve includes the option for precision-recall curve
+* roc.curve returns PPV and NPV which are needed for precision-recall curve
+
 # clinfun 1.1.1 (03/06/2023)
 
 * changed class check to use inherits instead of comparing strings
