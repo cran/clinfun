@@ -162,13 +162,20 @@ twostage.admissible  <- function(x) {
     adm[istart+imin] = 1
     istart = istart+imin
   }
-  xout = xout[1:nopt,][adm==1,]
-  # find weight probability at which each rule is admissible
-  dmss = diff(xout[,4])
-  dess = diff(xout[,5])
-  qwt = round(dess/(dess - dmss),3)
-  # admissible designs
-  xout = cbind(xout, c(qwt, 0), c(1, qwt))
+  # this gives an error if minimax design is also optimal
+  # example ph2simon(0.8, 0.95, 0.05, 0.2)
+  if (nopt == 1) { # when minimal is also optimal
+    xout = xout[c(1, nopt),]
+    xout = cbind(xout, c(0, 0), c(1, 1))
+  } else {
+    xout = xout[1:nopt, ][adm == 1, ]
+    # find weight probability at which each rule is admissible
+    dmss = diff(xout[, 4])
+    dess = diff(xout[, 5])
+    qwt = round(dess/(dess - dmss), 3)
+    # admissible designs
+    xout = cbind(xout, c(qwt, 0), c(1, qwt))
+  }
   colnames(xout)[7:8] = c("qLo", "qHi")
   rownames(xout) = c("Minimax", rep("Admissible", nrow(xout)-2), "Optimal")
   xout

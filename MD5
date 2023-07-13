@@ -1,7 +1,7 @@
-7d09836d3c0b75aa3f4e596f444563f2 *DESCRIPTION
+e49179ca1fdd4456f7b763d220c64083 *DESCRIPTION
 7d4bf0374db963fdbfc9128567261856 *INDEX
 7e9719d348dd1b5f2e1e9b942cb06e31 *NAMESPACE
-145a0e85af8481d1ed674219023c8bbd *NEWS.md
+b48520bd6627ae354b22c29fe75de4c0 *NEWS.md
 9e776f0de55708e18a4a5b4971897919 *R/aucVardiTest.R
 ca0fd8a3e558997fc688f22e34484dcb *R/calogrank.R
 b9ffc03dd09bb97691c62fa37625a71b *R/coxphCPE.R
@@ -14,7 +14,7 @@ e6de4d3bcd62464f685882998d5ed64a *R/coxphQuantile.R
 836989d8ebe0d55d02120166145a5bf1 *R/ktau.R
 41aaea47e1d034676552957d00dc4c87 *R/lehmann.R
 8cfcd391a0ad575ef367af5caf43ffb1 *R/permlogrank.R
-d9e327ce45be02be8c371e52d4d8f1bd *R/ph2simon.R
+db2c36acd4fa45b60233911a7dd8f562 *R/ph2simon.R
 63ae0a1faf6438d8ed0591bb876e8535 *R/ph2single.R
 5380f6850c9ceea21fa9d7e439695d02 *R/pselect.R
 e29487718a34b1f29b0aed037e999299 *R/roc.area.test.R
@@ -36,14 +36,14 @@ f31c2f328bdf29f64e093c42717d4192 *man/gsdesign.Rd
 c7c2570b521aa1ac70ed2ae5a0eb6a3f *man/ktau.Rd
 f9bfdd8771bae4a65f535051d2f8e822 *man/oc.twostage.bdry.Rd
 666565a48d210a57eede46d1f0e91c2f *man/permlogrank.Rd
-cf9d386c98e11949c172d33e922cbbdb *man/ph2simon.Rd
+85c12929da0883b4f18533741bde2841 *man/ph2simon.Rd
 718d5ebe5535881f98523e4e8727762d *man/ph2single.Rd
 e6b7ba1e25e6a434930adf949a8b3b50 *man/power.ladesign.Rd
 572fa7f3b94036c02ed46d7a63d17447 *man/pselect.Rd
 e12ccc9842b3e724e367b0a7076e542b *man/roc.area.test.Rd
 c5c07b4c8f7f5abb0e06ac7ed0213283 *man/roc.curve.Rd
 38cf9771937136f7e5b52386af51acad *man/roc.perm.test.Rd
-8a7bb10efa97826bf85b05563fb86d0f *man/toxbdry.Rd
+245dbf4242a7d01b66d5ed0f8824da9a *man/toxbdry.Rd
 7f076906ea1bd0dfbbf086c65815f985 *man/twostage.admissible.Rd
 fbf33f61f14c25aed892250ec29d3ec1 *man/twostage.inference.Rd
 51cc7b54dddb14f162a0355070b09dee *src/calogrank.f

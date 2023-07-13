@@ -1,3 +1,8 @@
+# clinfun 1.1.3 (07/11/2023)
+
+* fixed the bug in ph2simon/twostage.admissible when minimax is also optimal
+* ph2simon and toxbdry help have been made more clear
+
 # clinfun 1.1.2 (06/19/2023)
 
 * changed all dfloat in fortran to dble
