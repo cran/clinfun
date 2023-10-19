@@ -1,7 +1,7 @@
-1ec1484a2307dd7624c345f78ed86875 *DESCRIPTION
+35969bea0ef42273af1c70c4037e12fa *DESCRIPTION
 7d4bf0374db963fdbfc9128567261856 *INDEX
 7e9719d348dd1b5f2e1e9b942cb06e31 *NAMESPACE
-82997642b1c8d98cac8ef828e149bef6 *NEWS.md
+34e3a02610caba67d7ee028b2cc3a9b9 *NEWS.md
 9e776f0de55708e18a4a5b4971897919 *R/aucVardiTest.R
 ca0fd8a3e558997fc688f22e34484dcb *R/calogrank.R
 b9ffc03dd09bb97691c62fa37625a71b *R/coxphCPE.R
@@ -35,7 +35,7 @@ e162b552a86a578f664a67217abb8622 *man/coxphERR.Rd
 b5b448185aacf21bdf95926c51098282 *man/coxphQuantile.Rd
 9208fd4783c32033862d8a83e37539de *man/deltaAUC.Rd
 1e0eb3aed2d1a93e6a1ec85a411f22b9 *man/fedesign.Rd
-33c291c3cbb6bbae6c373f14cce3e5a4 *man/gsdesign.Rd
+2405aeb5c1333903bf1b7869f44c854b *man/gsdesign.Rd
 1d8b16cc6aac0b9d3a9feb4c9f7afdef *man/jonckheere.test.Rd
 c7c2570b521aa1ac70ed2ae5a0eb6a3f *man/ktau.Rd
 f9bfdd8771bae4a65f535051d2f8e822 *man/oc.twostage.bdry.Rd
